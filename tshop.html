@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Framer Site</title>
+  <meta name="description" content="Made with Framer">
+
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="preload" href="assets/fonts/kumbh-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <!-- Decorative shapes shared with the homepage -->
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="burst" viewBox="0 0 100 100">
+        <polygon points="50.0,4.0 57.0,14.7 67.6,7.5 70.0,20.1 82.5,17.5 79.9,30.0 92.5,32.4 85.3,43.0 96.0,50.0 85.3,57.0 92.5,67.6 79.9,70.0 82.5,82.5 70.0,79.9 67.6,92.5 57.0,85.3 50.0,96.0 43.0,85.3 32.4,92.5 30.0,79.9 17.5,82.5 20.1,70.0 7.5,67.6 14.7,57.0 4.0,50.0 14.7,43.0 7.5,32.4 20.1,30.0 17.5,17.5 30.0,20.1 32.4,7.5 43.0,14.7"
+                 fill="currentColor" stroke="var(--ink)" stroke-width="var(--deco-stroke, 4)" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="sparkle" viewBox="0 0 100 100">
+        <path d="M50 5C54 33 67 46 95 50C67 54 54 67 50 95C46 67 33 54 5 50C33 46 46 33 50 5Z"
+              fill="currentColor" stroke="var(--ink)" stroke-width="var(--deco-stroke, 4)" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="squiggle" viewBox="0 0 160 40">
+        <path d="M6 20Q22 2 38 20T70 20T102 20T134 20T154 20" fill="none"
+              stroke="var(--ink)" stroke-width="calc(var(--deco-stroke, 4) * 1.4)" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="blob" viewBox="0 0 100 100">
+        <path d="M50 6c14 0 20 10 30 14 12 5 18 18 14 30-4 14-14 18-24 24-12 7-28 8-40 0C18 68 6 60 6 46 6 32 16 26 22 18 30 8 38 6 50 6z"
+              fill="currentColor" stroke="var(--ink)" stroke-width="var(--deco-stroke, 4)" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="ring" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="40" fill="none" stroke="var(--ink)" stroke-width="calc(var(--deco-stroke, 4) * 2)"/>
+      </symbol>
+      <symbol id="dot" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="44" fill="currentColor" stroke="var(--ink)" stroke-width="var(--deco-stroke, 4)"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span class="nav__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">Home</a></li>
+          <li><a class="nav__link" href="https://drive.google.com/file/d/1IyiNxV_8yLdAtv77d773R05TLhrPXiHI/view?usp=sharing">Resume</a></li>
+          <li><a class="nav__link" href="index.html">Work</a></li>
+        </ul>
+        <p class="nav__email">thisisdat098@gmail.com</p>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+<section class="page-hero" aria-labelledby="page-title">
+<svg class="deco deco--page-sparkle" aria-hidden="true"><use href="#sparkle"/></svg>
+<svg class="deco deco--page-burst" aria-hidden="true"><use href="#burst"/></svg>
+<div class="page-hero__grid page-hero__grid--media-first">
+<figure class="shot shot--lilac hero-figure"><img src="https://framerusercontent.com/images/vIVJF5V0T466XXed5s6Hig4A.png?width=436&amp;height=527" alt="Tshop Seller Center" width="436" height="527" decoding="async"></figure>
+<div class="page-hero__copy">
+<h1 class="page-title page-title--sentence" id="page-title">Overview</h1>
+<p class="lead">Tshop seller is web-app for sellers on e-commerce platforms, helping to manage products, orders and customers. Provides the function of reporting necessary information as well as creating promotions to attract customers.</p>
+</div>
+</div>
+</section>
+
+<section class="block">
+<div class="wrap stack stack--lg">
+<div class="stack">
+<h2 class="h3">Dashboard</h2>
+<figure class="shot"><img src="https://framerusercontent.com/images/B3Dglz4oqyKtMLCm066P7x8kMfo.jpg?width=1920&amp;height=1157" alt="Dashboard, screen 1 of 1" width="1920" height="1157" loading="lazy" decoding="async"></figure>
+</div>
+<div class="stack">
+<h2 class="h3">Chat with Customer</h2>
+<div class="grid-2">
+<figure class="shot"><img src="https://framerusercontent.com/images/iTNe5M1wb3dKkfI1ZtVc8dDNdCA.jpg?width=1920&amp;height=1080" alt="Chat with Customer, screen 1 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/dBeFlpKDI6f7RS9qAWuh3t1YI.jpg?width=1920&amp;height=1080" alt="Chat with Customer, screen 2 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+<div class="stack">
+<h2 class="h3">Oder Management</h2>
+<div class="grid-2">
+<figure class="shot"><img src="https://framerusercontent.com/images/I7PBJPdhmRZvyNSwNEtDKx9K8ro.jpg?width=1920&amp;height=1080" alt="Oder Management, screen 1 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/EZSrZf2f9KJ8IZeegEb0tpoEA.jpg?width=1920&amp;height=1080" alt="Oder Management, screen 2 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+<div class="stack">
+<h2 class="h3">Product Management</h2>
+<div class="grid-2">
+<figure class="shot"><img src="https://framerusercontent.com/images/ZoF1je4hik2AEVDNXktgXvZUFCw.jpg?width=1920&amp;height=1080" alt="Product Management, screen 1 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/Rfdkx3WnzrxsxbLfI3flPDC2yA.jpg?width=1920&amp;height=1080" alt="Product Management, screen 2 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+<div class="stack">
+<h2 class="h3">Rating Management</h2>
+<div class="grid-2">
+<figure class="shot"><img src="https://framerusercontent.com/images/2gHcDQMBemZDv3S6rP93lNtUEI.jpg?width=1920&amp;height=1080" alt="Rating Management, screen 1 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/CyB3JOR5Ze2KcIr5CgmnBZN1lzE.jpg?width=1920&amp;height=1080" alt="Rating Management, screen 2 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+<div class="stack">
+<h2 class="h3">Customer Management</h2>
+<div class="grid-2">
+<figure class="shot"><img src="https://framerusercontent.com/images/ccBHnOxnBIzXiZvXk4HgCzxCE5A.jpg?width=1920&amp;height=1080" alt="Customer Management, screen 1 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/QS2opRahUhFOV9CXZZPF3CsdGoE.jpg?width=1920&amp;height=1080" alt="Customer Management, screen 2 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+<div class="stack">
+<h2 class="h3">Voucher Management</h2>
+<div class="grid-2">
+<figure class="shot"><img src="https://framerusercontent.com/images/7ZmOix32DKEjjZ5qEnTC2uV28.jpg?width=1920&amp;height=1080" alt="Voucher Management, screen 1 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/n4uoVltn5U8cyV3eS9SoqsIS4qI.jpg?width=1920&amp;height=1080" alt="Voucher Management, screen 2 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+<div class="stack">
+<h2 class="h3">Marketing</h2>
+<div class="grid-2">
+<figure class="shot"><img src="https://framerusercontent.com/images/jDU6zS0lTw3iSfMiWoOvIQD9Ng.jpg?width=1920&amp;height=1080" alt="Marketing, screen 1 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/tB6trToFabRMdudE5JODBa44mys.jpg?width=1920&amp;height=1080" alt="Marketing, screen 2 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+<div class="stack">
+<h2 class="h3">Custom Shop</h2>
+<div class="grid-2">
+<figure class="shot"><img src="https://framerusercontent.com/images/tkbRFCXrLdcVyd7Z2cdSypnr5cs.jpg?width=1920&amp;height=1080" alt="Custom Shop, screen 1 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/Oi40fVZsIqmhPJh0jbrbA9Pu69c.jpg?width=1920&amp;height=1080" alt="Custom Shop, screen 2 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+<div class="stack">
+<h2 class="h3">Finance Management</h2>
+<div class="grid-2">
+<figure class="shot"><img src="https://framerusercontent.com/images/zL6SKrm6rKIpkvwArHiRgqxeg6s.jpg?width=1920&amp;height=1080" alt="Finance Management, screen 1 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/Busnl1Ftms0hY3pfAcxldjFBEI.jpg?width=1920&amp;height=1080" alt="Finance Management, screen 2 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+<div class="stack">
+<h2 class="h3">Report</h2>
+<div class="grid-2">
+<figure class="shot"><img src="https://framerusercontent.com/images/ExxIEiHGnvmSkH6jSYSve1uI5Cc.jpg?width=1920&amp;height=1080" alt="Report, screen 1 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/HG1No8QbX9038q4lKRfQC3WFqzc.jpg?width=1920&amp;height=1080" alt="Report, screen 2 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+</div>
+</section>
+
+<section class="block block--band block--butter" aria-labelledby="more-from-tmt">
+<div class="wrap stack stack--lg">
+<h2 class="h2" id="more-from-tmt">More from TMT</h2>
+<nav class="project-links project-links--2" aria-label="More from TMT">
+<a class="project-link project-link--peach" href="tweb.html"><span>TWeb Design</span><span class="project-link__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+</nav>
+</div>
+</section>
+
+    <section class="connect" aria-labelledby="connect-title">
+      <svg class="deco deco--connect-burst" aria-hidden="true"><use href="#burst"/></svg>
+      <svg class="deco deco--connect-squiggle" aria-hidden="true"><use href="#squiggle"/></svg>
+      <svg class="deco deco--connect-blob" aria-hidden="true"><use href="#blob"/></svg>
+
+      <h2 class="connect__title" id="connect-title">Still scrolling? Let’s connect!</h2>
+      <p class="connect__text">You made it this far, so why not say hello?</p>
+      <a class="btn btn--peach btn--large" href="mailto:thisisdat098@gmail.com">CONTACT ME</a>
+    </section>
+
+  </main>
+</body>
+</html>

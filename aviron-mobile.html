@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Framer Site</title>
+  <meta name="description" content="Made with Framer">
+
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="preload" href="assets/fonts/kumbh-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <!-- Decorative shapes shared with the homepage -->
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="burst" viewBox="0 0 100 100">
+        <polygon points="50.0,4.0 57.0,14.7 67.6,7.5 70.0,20.1 82.5,17.5 79.9,30.0 92.5,32.4 85.3,43.0 96.0,50.0 85.3,57.0 92.5,67.6 79.9,70.0 82.5,82.5 70.0,79.9 67.6,92.5 57.0,85.3 50.0,96.0 43.0,85.3 32.4,92.5 30.0,79.9 17.5,82.5 20.1,70.0 7.5,67.6 14.7,57.0 4.0,50.0 14.7,43.0 7.5,32.4 20.1,30.0 17.5,17.5 30.0,20.1 32.4,7.5 43.0,14.7"
+                 fill="currentColor" stroke="var(--ink)" stroke-width="var(--deco-stroke, 4)" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="sparkle" viewBox="0 0 100 100">
+        <path d="M50 5C54 33 67 46 95 50C67 54 54 67 50 95C46 67 33 54 5 50C33 46 46 33 50 5Z"
+              fill="currentColor" stroke="var(--ink)" stroke-width="var(--deco-stroke, 4)" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="squiggle" viewBox="0 0 160 40">
+        <path d="M6 20Q22 2 38 20T70 20T102 20T134 20T154 20" fill="none"
+              stroke="var(--ink)" stroke-width="calc(var(--deco-stroke, 4) * 1.4)" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="blob" viewBox="0 0 100 100">
+        <path d="M50 6c14 0 20 10 30 14 12 5 18 18 14 30-4 14-14 18-24 24-12 7-28 8-40 0C18 68 6 60 6 46 6 32 16 26 22 18 30 8 38 6 50 6z"
+              fill="currentColor" stroke="var(--ink)" stroke-width="var(--deco-stroke, 4)" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="ring" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="40" fill="none" stroke="var(--ink)" stroke-width="calc(var(--deco-stroke, 4) * 2)"/>
+      </symbol>
+      <symbol id="dot" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="44" fill="currentColor" stroke="var(--ink)" stroke-width="var(--deco-stroke, 4)"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span class="nav__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">Home</a></li>
+          <li><a class="nav__link" href="https://drive.google.com/file/d/1IyiNxV_8yLdAtv77d773R05TLhrPXiHI/view?usp=sharing">Resume</a></li>
+          <li><a class="nav__link" href="index.html">Work</a></li>
+        </ul>
+        <p class="nav__email">thisisdat098@gmail.com</p>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+<section class="page-hero" aria-labelledby="page-title">
+<svg class="deco deco--page-sparkle" aria-hidden="true"><use href="#sparkle"/></svg>
+<svg class="deco deco--page-burst" aria-hidden="true"><use href="#burst"/></svg>
+<div class="page-hero__grid page-hero__grid--split">
+<div class="page-hero__copy">
+<h1 class="page-title" id="page-title"><span class="page-title__big">MYAVIRON COMPANIAN APP</span></h1>
+<p class="lead">The MyAviron Companion App was created to make it easier for users to connect their Aviron workout data anywhere, anytime. It helps bring the Aviron experience beyond the machine, reaching more people and keeping them engaged with their fitness journey.</p>
+</div>
+<figure class="shot shot--plain shot--bare hero-figure hero-figure--fill"><img src="assets/images/myaviron-hero.png" alt="Two phones showing the MyAviron Companion App: the profile screen and the Aviron launch screen" width="1024" height="1058" decoding="async"></figure>
+</div>
+</section>
+
+<section class="block block--band block--white" aria-labelledby="role-title">
+<div class="wrap stack stack--lg">
+<h2 class="h2" id="role-title">MY ROLE</h2>
+<p class="lead">As the first designer on the MyAviron Companion App, I was responsible for shaping the initial user experience and visual direction. I established the core design system, defined interaction patterns, and collaborated closely with developers and product owners to bring the first version of the app to life.</p>
+</div>
+</section>
+
+<section class="block" aria-labelledby="pain-title">
+<div class="wrap stack stack--lg">
+<h2 class="h2" id="pain-title">PAINT POINT - DISCOVERY</h2>
+<div class="cards cards--3">
+<article class="card card--mint">
+<h3 class="h3">User Experience</h3>
+<ul class="list">
+<li>Every time users wanted to view their workout data or progress, they had to be at home and use the large machine screen — which was quite inconvenient.</li>
+<li>Within the Aviron community, when members shared their workout statistics, they often took photos of the screen with their phones, resulting in blurry, tilted, or unprofessional images.</li>
+</ul>
+</article>
+<article class="card card--butter">
+<h3 class="h3">Engagement &amp; Retention</h3>
+<ul class="list">
+<li>After workouts, user engagement dropped sharply — there was no channel to keep users connected daily.</li>
+<li>Without reminders or mobile access, users lost motivation to maintain streaks or join challenges.</li>
+<li>There was no platform for notifications or updates about new games, programs, or rewards. Technically, we had email, but it incurred additional costs every time we sent one to users.</li>
+</ul>
+</article>
+<article class="card card--sky">
+<h3 class="h3">Business / Ecosystem Pain Points</h3>
+<ul class="list">
+<li>The company needed a way to expand beyond rowing machines, reaching new users who might join through community and app experience.</li>
+<li>A mobile app could centralize user accounts, subscriptions, and performance tracking — making it easier for support and CRM teams.</li>
+<li>It also opened new marketing opportunities, like push notifications and referral programs.</li>
+</ul>
+</article>
+</div>
+<figure class="shot shot--fit shot--peach"><img src="https://framerusercontent.com/images/d3O99XSWTscskhe1dSU4R9QCeY.png?width=650&amp;height=650" alt="Workout stats shared as a photo of the machine screen" width="650" height="650" loading="lazy" decoding="async"></figure>
+</div>
+</section>
+
+<section class="block block--band block--pink" aria-labelledby="framing-title">
+<div class="wrap stack stack--lg">
+<h2 class="h2" id="framing-title">PROBLEM FRAMING</h2>
+<h3 class="h3">Key Feature</h3>
+<p class="lead">The mobile app addresses these pain points by extending the Aviron experience beyond the machine:</p>
+<ul class="list">
+<li><strong>Instant Workout Sync</strong> – Automatically syncs every session with the mobile app so users can track progress anytime, anywhere.</li>
+<li><strong>Visual Performance Dashboard</strong> – Interactive charts and graphs display rowing metrics in a clean, digestible format. Users can filter by time period, workout type, or personal records.</li>
+<li><strong>Smart Sharing Tools</strong> – Users can create high-quality, customizable images of their workout stats for social media, replacing the blurry machine photos.</li>
+<li><strong>Notifications &amp; Expiration Alerts</strong> – For premium or time-limited video content, the app alerts users before expiration, ensuring they don’t miss Aviron's new updates.</li>
+</ul>
+</div>
+</section>
+
+<section class="block" aria-labelledby="map-title">
+<div class="wrap stack stack--lg">
+<h2 class="h2" id="map-title">EXPLORATION - FEATURE MAP</h2>
+<div class="shots-stack">
+<figure class="shot"><img src="https://framerusercontent.com/images/NBuuc1J1iBwKeVbNF3X89mGb6Qw.png?width=2800&amp;height=1054" alt="Companion app feature map" width="2800" height="1054" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/0bjP1Od869NeVvoFLX9yKFgw.png?width=2800&amp;height=720" alt="Companion app home screen feature map" width="2800" height="720" loading="lazy" decoding="async"></figure>
+</div>
+<p class="lead">A quick overview of all key features planned for the Companion App — used as both a product reference and team checklist.<br>
+Since the <strong>Home screen</strong> carries the most functional weight, it’s outlined separately for clarity.</p>
+</div>
+</section>
+
+<section class="block block--band block--sky" aria-labelledby="proto-title">
+<div class="wrap stack stack--lg">
+<h2 class="h2" id="proto-title">DESIGN EXECUTION - PROTOTYPE</h2>
+<p class="lead">While it includes a wide range of functionalities, to keep things concise I will focus on a few selected case studies and key screens.</p>
+<div class="stack stack--lg">
+<h3 class="h3">Home Screen</h3>
+<div class="prose">
+<p>Put the most important data on the <strong>Home screen</strong>, allowing users to quickly check their key stats (workout summary, calories, streaks) and access shortcut widgets like <strong>Achievements, Challenges, and Profile</strong>.</p>
+</div>
+<div class="shots">
+<figure class="shot"><img src="https://framerusercontent.com/images/ajYHrFeAKQRy3DUGYedWmn8JalM.png?width=780&amp;height=1704" alt="Home screen, screen 1 of 3" width="780" height="1704" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/1ZbeaWfBsuHZee3ex750cvOj5M.png?width=780&amp;height=1704" alt="Home screen, screen 2 of 3" width="780" height="1704" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/NC2b3fz2SNF6BF2SW1Ajb3JpL4.png?width=780&amp;height=1704" alt="Home screen, screen 3 of 3" width="780" height="1704" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+<div class="stack stack--lg">
+<h3 class="h3">Workout History</h3>
+<div class="prose">
+<p>Sync data with the Aviron app but approriate for mobile use</p>
+</div>
+<div class="shots">
+<figure class="shot"><img src="https://framerusercontent.com/images/JkyDfJCzF6XCSBuNgHMJZD4pzE.png?width=780&amp;height=1688" alt="Workout history, screen 1 of 3" width="780" height="1688" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/fUnKY99NR47q5BouD4EO3saVf0Y.png?width=780&amp;height=1688" alt="Workout history, screen 2 of 3" width="780" height="1688" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/xM0EffYo3jjzCSmwZw95g62i0.png?width=780&amp;height=1688" alt="Workout history, screen 3 of 3" width="780" height="1688" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+<div class="stack stack--lg">
+<h3 class="h3">Monthly Challenge and Leaderboard</h3>
+<div class="prose">
+<p>Sync data with the Aviron app but approriate for mobile use</p>
+</div>
+<div class="shots">
+<figure class="shot"><img src="https://framerusercontent.com/images/nIV9etYkG4z2UMypu6OYNO44FQ.png?width=780&amp;height=1688" alt="Monthly challenge and leaderboard, screen 1 of 3" width="780" height="1688" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/mYmFqeg6OfZQiFbPTithVWvcgw.png?width=780&amp;height=1688" alt="Monthly challenge and leaderboard, screen 2 of 3" width="780" height="1688" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/w0aLdkBUx2LZKwj0kK716uWLc.png?width=780&amp;height=1688" alt="Monthly challenge and leaderboard, screen 3 of 3" width="780" height="1688" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+<div class="stack stack--lg">
+<h3 class="h3">Sharing Function</h3>
+<div class="prose">
+<p>We introduced a <strong>Sharing feature</strong> that transforms users’ workout statistics into visually branded images using Aviron templates.<br>
+This not only makes it easier for users to showcase their achievements but also helps <strong>improve brand visibility</strong> through organic sharing.</p>
+</div>
+<div class="shots">
+<figure class="shot"><img src="https://framerusercontent.com/images/YBHuMN5oFZnIgZGWEM5wgZGcZ8.png?width=780&amp;height=1688" alt="Sharing function, screen 1 of 3" width="780" height="1688" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/ZKAObcgcI21Y08KS8NqZxULjr4.png?width=780&amp;height=1688" alt="Sharing function, screen 2 of 3" width="780" height="1688" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/VxpPhUVLfam1i9V8FcGKpmvWYsc.png?width=780&amp;height=1688" alt="Sharing function, screen 3 of 3" width="780" height="1688" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+<div class="stack stack--lg">
+<h3 class="h3">Push Notifications</h3>
+<div class="prose">
+<p>The <strong>Push Notification</strong> feature keeps users engaged even when they’re away from the machine.<br>
+It reminds them to stay consistent with workouts, notifies about new challenges or promotions, and helps <strong>reduce churn by maintaining regular interaction</strong>.</p>
+</div>
+<div class="shots">
+<figure class="shot"><img src="https://framerusercontent.com/images/TrwydAB6F7BzFyA6itpbRYOjzQ.png?width=1170&amp;height=2532" alt="Push notifications, screen 1 of 3" width="1170" height="2532" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/EMXP1kjtN81WFtTjNyt2iEViq0Q.png?width=1080&amp;height=2400" alt="Push notifications, screen 2 of 3" width="1080" height="2400" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/YDmFlfcbQ2qf6IjTeTtwQBWxcQ.png?width=780&amp;height=1704" alt="Push notifications, screen 3 of 3" width="780" height="1704" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+</div>
+</section>
+
+<section class="block" aria-labelledby="valid-title">
+<div class="wrap stack stack--lg">
+<h2 class="h2" id="valid-title">VALIDATION</h2>
+<div class="stack">
+<h3 class="h3">GOOD FEEDBACKS</h3>
+<div class="prose">
+<p>After launching the <strong>MyAviron Companion App</strong>, we received encouraging results both from metrics and user feedback.<br>
+At the time I write this case study, the app reached <strong>over 6,000 downloads</strong> across iOS and Android, with <strong>~60% adoption rate</strong> among existing Aviron members. Many users shared positive feedback about the convenience of tracking their progress anytime, anywhere — no longer limited to the rowing machine screen.</p>
+</div>
+</div>
+<blockquote class="quote">
+<p>“It’s so nice to check my stats and challenges right from my phone!”</p>
+<p>“I love being reminded about my streak — it really helps me stay consistent!”</p>
+</blockquote>
+<div class="prose">
+<p>Users appreciated the clear data visualization, quick access to workout summaries, and personalized notifications that helped them stay on track.<br>
+The social sharing templates also sparked activity within the Aviron Community, where members began posting their achievements more frequently and with consistent Aviron branding.</p>
+</div>
+<div class="stack">
+<h3 class="h3">FEEDBACKS NEED TO IMPROVE</h3>
+<div class="prose">
+<p>However, there were also areas to improve. Some users expressed interest in more social interaction directly inside the app, such as liking or commenting on friends’ activities. Others wanted better integration between the app and the rowing machine, especially for syncing data and managing device settings.</p>
+<p>These insights highlight opportunities for future growth:</p>
+</div>
+<ul class="list">
+<li>Expanding <strong>social and community features</strong> to increase engagement.</li>
+<li>Introducing <strong>in-app challenges and group competitions</strong>.</li>
+<li>Enhancing <strong>real-time connection</strong> between the app and Aviron hardware for seamless tracking.</li>
+</ul>
+<div class="prose">
+<p>Overall, the launch successfully bridged the gap between hardware and mobile experience — creating a foundation for stronger user retention and community-driven motivation.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="block block--band block--peach" aria-labelledby="recap-title">
+<div class="wrap stack stack--lg">
+<h2 class="h2" id="recap-title">DEEP DIVE: DESIGNING THE AVIRON 2025 RECAP</h2>
+<div class="cards cards--3">
+<article class="card card--mint">
+<h3 class="h3">Discovery</h3>
+<p>Through user observations and community discussions, we identified several unmet needs:</p>
+<ul class="list">
+<li>Users wanted a meaningful way to look back at their entire year of training</li>
+<li>At the end of the year, user motivation dipped — there was no special moment or celebration around their achievements.</li>
+<li>Aviron lacked “shareable moments” similar to Spotify Wrapped or Strava Yearly Recap, which are powerful for both retention and brand visibility.</li>
+</ul>
+</article>
+<article class="card card--butter">
+<h3 class="h3">Problem Framing</h3>
+<p>Users need a visually inspiring and personalized yearly recap so they can celebrate their achievements, stay motivated, and proudly share their progress with the Aviron community.</p>
+</article>
+<article class="card card--pink">
+<h3 class="h3">Exploration</h3>
+<p>We brainstormed different directions:</p>
+<ul class="list">
+<li>Turning a full year of data into a narrative flow with themed sections</li>
+<li>Highlighting achievements such as total calories, best streaks, or memorable milestones</li>
+<li>Designing branded, shareable cards optimized for social media</li>
+<li>Using motion and transitions to make the recap feel premium and celebratory</li>
+<li>Adding subtle gamification, like badges or “top 10% performance” highlights</li>
+<li>Ending the recap with a summarize</li>
+</ul>
+</article>
+</div>
+<h3 class="h3">Design Execution</h3>
+<div class="stack stack--lg">
+<h4 class="step"><span class="step__num">1</span><span>Introduction:</span></h4>
+<div class="prose">
+<p>To ensure users immediately noticed the new Recap 2025 feature, I designed a push notification to re-engage users who hadn’t opened the app recently, an in-app pop-up that appeared on launch, and a prominent homepage banner.</p>
+</div>
+<div class="shots">
+<figure class="shot"><img src="https://framerusercontent.com/images/iA4Wgh6pJkZENkgOXq2V0vWRRI.png?width=780&amp;height=1688" alt="Recap 2025 introduction, screen 1 of 3" width="780" height="1688" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/lln9dybSudeiKhAtk6aaagkrtoA.png?width=780&amp;height=1688" alt="Recap 2025 introduction, screen 2 of 3" width="780" height="1688" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/RCJjn0unAUomNpaTkIsNwevXNXY.png?width=780&amp;height=1688" alt="Recap 2025 introduction, screen 3 of 3" width="780" height="1688" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+<div class="stack stack--lg">
+<h4 class="step"><span class="step__num">2</span><span>Primary Screens:</span></h4>
+<div class="prose">
+<p>The core Recap 2025 screens were designed with a clean, minimal structure to keep users focused on their personal achievements. I used bold primary statistics and a bright, youthful color palette that aligns with Aviron’s energetic brand identity. Each section highlights a key moment of the user’s fitness journey — from total workouts and PRs to streak milestones — presented in a visually engaging layout that feels modern, celebratory, and easy to digest.</p>
+</div>
+<div class="shots shots--many">
+<figure class="shot"><img src="https://framerusercontent.com/images/pLfTpuQXShiWFLCKFWOhM7moqs.png?width=780&amp;height=1688" alt="Recap 2025 primary screens, screen 1 of 7" width="780" height="1688" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/ZBUBNt9u5plgqR3JFOTjNQcCrk.png?width=780&amp;height=1688" alt="Recap 2025 primary screens, screen 2 of 7" width="780" height="1688" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/VjG0HnznnDgj1saJuOCsAVrdexY.png?width=780&amp;height=1688" alt="Recap 2025 primary screens, screen 3 of 7" width="780" height="1688" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/ElTUOwCAKStPqAMcTswfYTIbRNs.png?width=780&amp;height=1688" alt="Recap 2025 primary screens, screen 4 of 7" width="780" height="1688" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/oyva4JRIQFpi3miyky0Ql3w0Mk.png?width=780&amp;height=1688" alt="Recap 2025 primary screens, screen 5 of 7" width="780" height="1688" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/nvZ6acPZGsbrt91aLPAwkaFTudE.png?width=780&amp;height=1688" alt="Recap 2025 primary screens, screen 6 of 7" width="780" height="1688" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/xyTBOP3WzZJfh7QCzXGiyRYwaA.png?width=780&amp;height=1688" alt="Recap 2025 primary screens, screen 7 of 7" width="780" height="1688" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+<div class="stack stack--lg">
+<h4 class="step"><span class="step__num">3</span><span>Motion &amp; Interaction</span></h4>
+<div class="prose">
+<p>To bring the Recap 2025 experience to life, I created simple animations that connect each data point into one continuous story. Since I’m still a beginner with animation, I focused on simple transitions and interactions that can be built directly in Figma and are easy for developers to implement.</p>
+<p>These micro-animations help guide the user through their achievements smoothly, making the experience feel more dynamic and engaging without adding unnecessary complexity.</p>
+<p>If the images above feel too small or static, you can explore the full interactive prototype for the complete experience.</p>
+</div>
+<figure class="video">
+<video controls playsinline preload="none" aria-label="Recap 2025 interactive prototype">
+<source src="https://framerusercontent.com/assets/ljg6skeVYplb9JiBDbW9Hgq4YC0.mp4" type="video/mp4">
+<a href="https://framerusercontent.com/assets/ljg6skeVYplb9JiBDbW9Hgq4YC0.mp4">Open the Recap 2025 prototype video</a>
+</video>
+</figure>
+</div>
+</div>
+</section>
+
+<section class="block block--band block--butter" aria-labelledby="more-from-aviron">
+<div class="wrap stack stack--lg">
+<h2 class="h2" id="more-from-aviron">More from Aviron</h2>
+<nav class="project-links project-links--2" aria-label="More from Aviron">
+<a class="project-link project-link--sky" href="aviron-client.html"><span>Client App</span><span class="project-link__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+<a class="project-link project-link--pink" href="aviron-mobile.html" aria-current="page"><span>MyAviron Companian</span><span class="project-link__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+</nav>
+</div>
+</section>
+
+    <section class="connect" aria-labelledby="connect-title">
+      <svg class="deco deco--connect-burst" aria-hidden="true"><use href="#burst"/></svg>
+      <svg class="deco deco--connect-squiggle" aria-hidden="true"><use href="#squiggle"/></svg>
+      <svg class="deco deco--connect-blob" aria-hidden="true"><use href="#blob"/></svg>
+
+      <h2 class="connect__title" id="connect-title">Still scrolling? Let’s connect!</h2>
+      <p class="connect__text">You made it this far, so why not say hello?</p>
+      <a class="btn btn--peach btn--large" href="mailto:thisisdat098@gmail.com">CONTACT ME</a>
+    </section>
+
+  </main>
+</body>
+</html>

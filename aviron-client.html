@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Framer Site</title>
+  <meta name="description" content="Made with Framer">
+
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="preload" href="assets/fonts/kumbh-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <script src="js/main.js" defer></script>
+  <script src="js/carousel.js" defer></script>
+</head>
+
+<body>
+  <!-- Decorative shapes shared with the homepage -->
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="burst" viewBox="0 0 100 100">
+        <polygon points="50.0,4.0 57.0,14.7 67.6,7.5 70.0,20.1 82.5,17.5 79.9,30.0 92.5,32.4 85.3,43.0 96.0,50.0 85.3,57.0 92.5,67.6 79.9,70.0 82.5,82.5 70.0,79.9 67.6,92.5 57.0,85.3 50.0,96.0 43.0,85.3 32.4,92.5 30.0,79.9 17.5,82.5 20.1,70.0 7.5,67.6 14.7,57.0 4.0,50.0 14.7,43.0 7.5,32.4 20.1,30.0 17.5,17.5 30.0,20.1 32.4,7.5 43.0,14.7"
+                 fill="currentColor" stroke="var(--ink)" stroke-width="var(--deco-stroke, 4)" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="sparkle" viewBox="0 0 100 100">
+        <path d="M50 5C54 33 67 46 95 50C67 54 54 67 50 95C46 67 33 54 5 50C33 46 46 33 50 5Z"
+              fill="currentColor" stroke="var(--ink)" stroke-width="var(--deco-stroke, 4)" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="squiggle" viewBox="0 0 160 40">
+        <path d="M6 20Q22 2 38 20T70 20T102 20T134 20T154 20" fill="none"
+              stroke="var(--ink)" stroke-width="calc(var(--deco-stroke, 4) * 1.4)" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="blob" viewBox="0 0 100 100">
+        <path d="M50 6c14 0 20 10 30 14 12 5 18 18 14 30-4 14-14 18-24 24-12 7-28 8-40 0C18 68 6 60 6 46 6 32 16 26 22 18 30 8 38 6 50 6z"
+              fill="currentColor" stroke="var(--ink)" stroke-width="var(--deco-stroke, 4)" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="ring" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="40" fill="none" stroke="var(--ink)" stroke-width="calc(var(--deco-stroke, 4) * 2)"/>
+      </symbol>
+      <symbol id="dot" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="44" fill="currentColor" stroke="var(--ink)" stroke-width="var(--deco-stroke, 4)"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span class="nav__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">Home</a></li>
+          <li><a class="nav__link" href="https://drive.google.com/file/d/1IyiNxV_8yLdAtv77d773R05TLhrPXiHI/view?usp=sharing">Resume</a></li>
+          <li><a class="nav__link" href="index.html">Work</a></li>
+        </ul>
+        <p class="nav__email">thisisdat098@gmail.com</p>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+<section class="page-hero" aria-labelledby="page-title">
+<svg class="deco deco--page-sparkle" aria-hidden="true"><use href="#sparkle"/></svg>
+<svg class="deco deco--page-burst" aria-hidden="true"><use href="#burst"/></svg>
+<div class="page-hero__grid">
+<div class="page-hero__copy">
+<h1 class="page-title" id="page-title"><span class="page-title__big">AVIRON CLIENT APP</span></h1>
+</div>
+</div>
+</section>
+
+<section class="block">
+<div class="wrap stack stack--lg">
+<figure class="shot shot--plain shot--bare"><img src="assets/images/aviron-client-hero.png" alt="Aviron exercise bike, rowing machine and treadmill, each with the Aviron client app on its touchscreen" width="1291" height="500" decoding="async"></figure>
+<p class="lead">Aviron is a connected fitness platform that turns traditional workouts into engaging, gamified experiences. The client app runs directly on 16:9 screens embedded in Aviron’s rowing machines, bikes, and treadmills — acting as the core interface where users train, compete, and track their performance in real time.</p>
+</div>
+</section>
+
+<section class="block block--band block--white" aria-labelledby="role-title">
+<div class="wrap stack stack--lg">
+<h2 class="h2" id="role-title">MY ROLE</h2>
+<p class="lead">Since joining Aviron in 2022, around the time the first version of the app launched, I’ve been the sole product designer working across multiple areas of the product. I collaborate closely with cross-functional teams to shape new features and continuously improve the overall user experience.</p>
+<p class="lead">My design process typically includes the stages below, though it’s not always linear. Depending on the scope, timeline, and business priorities, some projects may only require one or two phases, while others involve revisiting certain stages multiple times. The case studies below reflect how this process adapts in real product development.</p>
+<div class="cards cards--3">
+<article class="card card--mint">
+<p><strong>Discovery</strong></p>
+<p>I work with product owners to gather insights from users. By reviewing analytics, feedback, and support tickets, I identify pain points and uncover opportunities to improve the experience.</p>
+</article>
+<article class="card card--butter">
+<p><strong>Problem Framing</strong></p>
+<p>I translate those insights into clear problem statements and goals. I help prioritize opportunities based on both user needs and business objectives, ensuring we focus on the most meaningful improvements.</p>
+</article>
+<article class="card card--sky">
+<p><strong>Exploration</strong></p>
+<p>At this stage, I create user flows and wireframes to support discussions and align expectations across teams.</p>
+</article>
+<article class="card card--pink">
+<p><strong>Design Execution</strong></p>
+<p>I build the design solution while maintaining consistency with the design system and improving it where needed. For more complex interactions, I create prototypes for internal validation, usability checks, or accessibility review. I also work closely with developers and QA during implementation.</p>
+</article>
+<article class="card card--peach">
+<p><strong>Validation</strong></p>
+<p>After launch, I review analytics and real-world usage patterns, then identify areas for iteration based on both user behavior and internal feedback.</p>
+</article>
+</div>
+</div>
+</section>
+
+<section class="block" aria-labelledby="map-title">
+<div class="wrap stack stack--lg">
+<h2 class="h2" id="map-title">FEATURE MAP</h2>
+<figure class="shot"><img src="https://framerusercontent.com/images/DoN8jSoYhnDoXHFVU9U6YefCOU.png?width=2880&amp;height=1224" alt="Aviron client app feature map" width="2880" height="1224" loading="lazy" decoding="async"></figure>
+<p class="lead">Here is the feature map of the app. While it includes a wide range of functionalities, to keep things concise I will focus on a few selected case studies and key screens.</p>
+</div>
+</section>
+
+<section class="block block--band block--sky" aria-labelledby="cs1-title">
+<div class="wrap stack stack--lg">
+<h2 class="h2" id="cs1-title">CASE STUDY 1: UPGRADE FISHING GAME MAP AND LEVEL SYSTEM</h2>
+<dl class="meta card card--butter">
+<div><dt>Role:</dt><dd>Sole Product Designer</dd></div>
+<div><dt>Team:</dt><dd>Product Owner, Engineering, QA</dd></div>
+<div><dt>Scope:</dt><dd>Redesigning the fishing game progression system to improve long-term engagement and reward visibility</dd></div>
+<div><dt>Delivery:</dt><dd>Designed ahead of sprint, released incrementally with post-launch iteration</dd></div>
+</dl>
+<div class="stack stack--lg">
+<h3 class="step"><span class="step__num">1</span><span>DISCOVERY</span></h3>
+<div class="prose">
+<p>To understand why engagement dropped over time, I reviewed player behavior with the product owner and looked at feedback from users who had tried the fishing game.</p>
+</div>
+<figure class="shot"><img src="https://framerusercontent.com/images/LOslsWN96rhv2itCaTpU8XSOwGI.png?width=1844&amp;height=1401" alt="Fishing game, player feedback and behavior" width="1844" height="1401" loading="lazy" decoding="async"></figure>
+<div class="prose">
+<p>The gameplay itself was enjoyable, but the reward loop was not strong enough to sustain long-term engagement.</p>
+<p>The current flow allows users to buy any map using coins. However, this system feels too easy for long-term players who already have a large number of coins collected from other workout sessions. As a result, the sense of challenge and progression is lost over time.</p>
+</div>
+</div>
+<div class="stack stack--lg">
+<h3 class="step"><span class="step__num">2</span><span>PROBLEM FRAMING</span></h3>
+<div class="prose">
+<p>The original reward shop allowed users to unlock items after workouts, but progression felt disconnected and difficult to follow over time.</p>
+<p>Users could earn rewards, but there was little sense of journey or long-term progression, which reduced motivation to return after the first few sessions.</p>
+<p>The challenge was to improve retention without changing the core gameplay experience that users already enjoyed.</p>
+</div>
+<div class="cards cards--2">
+<div class="card card--mint">
+<p><strong>Goals</strong></p>
+<ul class="list">
+<li>Make progression easy to understand at a glance</li>
+<li>Give users clearer short-term and long-term goals</li>
+<li>Create stronger motivation to continue returning</li>
+<li>Keep the system lightweight and easy for casual users to follow</li>
+</ul>
+</div>
+<div class="card card--peach">
+<p><strong>Constraints</strong></p>
+<ul class="list">
+<li>The fishing gameplay loop was already established and could not change significantly</li>
+<li>Existing rewards and unlock logic needed to remain compatible with the new system</li>
+<li>The feature had to fit within a limited release scope and existing UI framework</li>
+<li>Progression needed to feel rewarding without becoming overly complex or game-heavy</li>
+</ul>
+</div>
+</div>
+<figure class="shot"><img src="https://framerusercontent.com/images/qE3KVLWb0bNMeSEJjcbivAKhJyg.png?width=2514&amp;height=614" alt="Fishing game, original reward shop" width="2514" height="614" loading="lazy" decoding="async"></figure>
+<div class="grid-2">
+<figure class="shot"><img src="https://framerusercontent.com/images/CKfliNb0Zx19ssRfpo3VYQRwulI.png?width=1920&amp;height=1080" alt="Fishing game, problem framing, screen 1 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/zphrQBZOfDqrXcCqvazpTX6P5X4.png?width=1920&amp;height=1080" alt="Fishing game, problem framing, screen 2 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+<div class="stack stack--lg">
+<h3 class="step"><span class="step__num">3</span><span>EXPLORATION</span></h3>
+<h4 class="h3">Initial Direction — Trophy Cabinet System</h4>
+<figure class="shot"><img src="https://framerusercontent.com/images/Bs0IBNQeijFOu1Bsh5oNlduHAKs.png?width=2522&amp;height=952" alt="Trophy Cabinet System concept" width="2522" height="952" loading="lazy" decoding="async"></figure>
+<div class="prose">
+<p>The original goal was to improve long-term engagement and encourage users to revisit previously completed islands in <em>Fishin’ Frenzy</em>.</p>
+<p>The first direction explored a <strong>Trophy Cabinet System</strong>, where each island contained:</p>
+</div>
+<ul class="list">
+<li>Unlockable fish collections</li>
+<li>Island-specific achievements</li>
+<li>Completion-based progression tracking</li>
+</ul>
+<figure class="shot shot--fit"><img src="https://framerusercontent.com/images/J7DPEpJrXgmzvn42fmuNUVBaA.gif?width=1280&amp;height=726" alt="Trophy Cabinet System prototype" width="1280" height="726" loading="lazy" decoding="async"></figure>
+<h4 class="h3">Early Learnings</h4>
+<div class="prose">
+<p>As the concept evolved, a few key limitations became clear.</p>
+</div>
+<p><strong>Progression Still Felt Optional</strong></p>
+<div class="prose">
+<p>Although collectibles added depth, users could still immediately purchase and unlock new islands without meaningfully engaging with previous content.</p>
+<p>This meant replay systems became secondary rather than core to progression.</p>
+</div>
+<p><strong>High Content Production Cost</strong></p>
+<div class="prose">
+<p>The system also introduced heavy content requirements.<br>
+Each island required:</p>
+</div>
+<ul class="list">
+<li>Unique fish assets</li>
+<li>Custom achievements</li>
+<li>Additional collection logic and UI states</li>
+</ul>
+<div class="prose">
+<p>As more islands were added, the system became increasingly difficult to scale efficiently.</p>
+</div>
+<p><strong>Difficult to Extend Across Other Games</strong></p>
+<div class="prose">
+<p>The Trophy Cabinet system worked specifically for <em>Fishin’ Frenzy</em>, but relied heavily on game-specific collectibles and assets.</p>
+<p>This made it difficult to reuse as a shared progression framework across future games on the platform.</p>
+</div>
+<h4 class="h3">Reframing the Problem</h4>
+<div class="prose">
+<p>At this stage, the focus shifted from:</p>
+<p><strong>“How do we add more collectibles?”</strong> to:</p>
+<p><strong>“How do we create a scalable progression system that drives long-term engagement across multiple games?”</strong></p>
+<p>This led to exploration inspired by progression systems commonly seen in games like Candy Crush Saga, particularly around:</p>
+</div>
+<ul class="list">
+<li>Gated progression</li>
+<li>Mission-based advancement</li>
+<li>Level requirements</li>
+<li>Structured unlock pacing</li>
+</ul>
+<h4 class="h3">Final Direction: Progression-Gated Unlock System</h4>
+<div class="prose">
+<p>The final solution replaced unrestricted island purchasing with a progression-based unlock system.</p>
+<p>Instead of immediately accessing new content, users now needed to:</p>
+</div>
+<ul class="list">
+<li>Complete missions</li>
+<li>Reach progression milestones</li>
+<li>Improve performance</li>
+<li>Level up through gameplay</li>
+</ul>
+<div class="prose">
+<p>before unlocking additional islands.</p>
+<p>This created a more structured and rewarding progression loop while naturally encouraging replay behavior.</p>
+</div>
+<figure class="shot"><img src="https://framerusercontent.com/images/2LTKEwrcCauTOsHurq72tP2kG7k.png?width=2522&amp;height=688" alt="Progression-gated unlock system" width="2522" height="688" loading="lazy" decoding="async"></figure>
+<h4 class="h3">Why the Final Direction Worked Better</h4>
+<div class="cards cards--3">
+<div class="card card--mint">
+<p><strong>Stronger Engagement Loops</strong></p>
+<p>Progression became earned rather than instantly consumable, creating clearer long-term goals and stronger replay motivation.</p>
+</div>
+<div class="card card--butter">
+<p><strong>More Scalable Across the Platform</strong></p>
+<p>Unlike the Trophy Cabinet system, the progression framework could be reused across multiple games without requiring entirely new collectible systems for each experience.</p>
+</div>
+<div class="card card--sky">
+<p><strong>Lower Long-Term Production Cost</strong></p>
+<p>The final direction reduced dependency on continuously creating custom collectible assets and achievement systems for every new island.</p>
+</div>
+</div>
+</div>
+<div class="stack stack--lg">
+<h3 class="step"><span class="step__num">4</span><span>PROTOTYPE THE FINAL IDEA</span></h3>
+<div class="prose">
+<p>Using the updated progression direction as the foundation, I designed a level-based map system that connected workouts directly to long-term progression.</p>
+</div>
+<figure class="shot shot--fit"><img src="https://framerusercontent.com/images/T2d48E4WcZyRIsOFzFsyq3rqhmc.gif?width=800&amp;height=451" alt="Level-based map prototype" width="800" height="451" loading="lazy" decoding="async"></figure>
+<div class="prose">
+<p>Because this was a major UI change compared to the existing experience and potentially reusable for future games. We wanted to validate whether users could understand the system naturally on first interaction before moving into implementation.</p>
+</div>
+<h4 class="h3">Usability validation</h4>
+<div class="prose">
+<p>Before development, we created an interactive prototype and conducted lightweight usability testing with several existing users through Discord.</p>
+<p>The main goal was to validate:</p>
+</div>
+<ul class="list">
+<li>Whether progression was easy to understand</li>
+<li>Whether users knew what to do next naturally</li>
+<li>Whether the additional map layer created friction before gameplay</li>
+</ul>
+<p><strong>Early positive signals</strong></p>
+<div class="prose">
+<p>Most users (Actually, it's 3/3 users) immediately understood the core progression structure without additional explanation.</p>
+<p>Common behaviors included:</p>
+</div>
+<ul class="list">
+<li>Recognizing islands as progression milestones</li>
+<li>Understanding level requirements for unlocking new areas</li>
+<li>Identifying “Next” as the primary action</li>
+<li>Understanding tasks as requirements for advancement</li>
+</ul>
+<div class="prose">
+<p>Several users also mentioned that the system gave them a stronger reason to return and continue progressing.</p>
+</div>
+<figure class="shot"><img src="https://framerusercontent.com/images/Me074v9y3mUQF4hmqlCXbI1Y60E.png?width=1170&amp;height=661" alt="Level-based map, usability test screen" width="1170" height="661" loading="lazy" decoding="async"></figure>
+<p><strong>Key learnings from testing</strong></p>
+<div class="prose">
+<p>While the overall response was positive, the usability sessions also revealed important behavioral differences between user types.</p>
+<p>One casual player mentioned that navigating between islands initially felt like “extra steps” before starting a workout, especially on days when the goal was simply to play quickly and casually.</p>
+<p>This feedback helped reinforce the importance of keeping the progression flow lightweight and avoiding unnecessary friction before gameplay.</p>
+<p>Another user expressed interest in viewing progression tasks directly during gameplay, which later influenced follow-up discussions around progression visibility.</p>
+</div>
+<p><strong>Final refinements before implementation</strong></p>
+<div class="prose">
+<p>Based on these observations, we introduced several additional behaviors before implementation:</p>
+</div>
+<ul class="list">
+<li>When users enter <em>Fishin’ Frenzy</em>, the map automatically opens at the most recently played location to reduce unnecessary navigation.</li>
+<li>When users scroll through the map, the camera automatically centers on the next island instead of requiring precise manual navigation.</li>
+<li>When an island becomes centered, its description and progression requirements automatically update, while the level panel on the right jumps directly to the relevant milestone range.</li>
+<li>We also explored adding subtle map animations and environmental effects to make progression feel more dynamic and rewarding instead of presenting the map as a completely static screen.</li>
+</ul>
+</div>
+<div class="stack stack--lg">
+<h3 class="step"><span class="step__num">5</span><span>VALIDATION</span></h3>
+<div class="prose">
+<p>After launch, we monitored early gameplay behavior and compared engagement trends across Aviron’s game experiences.</p>
+</div>
+<h4 class="h3">Early engagement signals</h4>
+<div class="prose">
+<p>Following the <em>Fishin’ Frenzy</em> progression update, we observed a noticeable increase in workout activity tied to the game experience.</p>
+</div>
+<figure class="shot"><img src="https://framerusercontent.com/images/1DSQRUy7u81EkIyBeSiSKTBl88.png?width=1201&amp;height=522" alt="Workout volume chart" width="1201" height="522" loading="lazy" decoding="async"><figcaption><strong><em>Workout volume for Fishin’ Frenzy increased significantly</strong> post-update, while other top games remained flat or declined.</em></figcaption></figure>
+<p><strong>Key observation</strong></p>
+<div class="prose">
+<p>The progression update appeared to increase curiosity and encourage users to spend more time exploring the new system.</p>
+</div>
+<h4 class="h3">Increased repeat interaction</h4>
+<div class="prose">
+<p>We also observed a short-term increase in average play frequency per user after launch.</p>
+<p>The data suggested that users were returning more frequently to continue map progression and unlock additional content.</p>
+</div>
+<figure class="shot"><img src="https://framerusercontent.com/images/iUTwKh4cBe4X2C6LaaUetjN5c.png?width=1201&amp;height=526" alt="Average plays per user chart" width="1201" height="526" loading="lazy" decoding="async"><figcaption><em>Average plays per user rose from <strong>2.21 to 2.37 times per week</strong> immediately after launch but <strong>fell to 2.24</strong> the following week.</em></figcaption></figure>
+<p><strong>Key observation</strong></p>
+<div class="prose">
+<p>The strongest engagement appeared during the early exploration phase, where users were discovering the progression system and new islands.</p>
+</div>
+<h4 class="h3">Follow-up learnings</h4>
+<div class="prose">
+<p>While the progression system improved engagement overall, the update also introduced some usability trade-offs.</p>
+<p>One noticeable drop came from avatar customization interactions. Since the “Change Avatar” action was now located inside the map flow instead of the previous direct-access flow, some users appeared less likely to interact with it.</p>
+</div>
+<figure class="shot"><img src="https://framerusercontent.com/images/sOs6C9QAzEm9i9PFb9PRSDoZjKY.png?width=1657&amp;height=666" alt="Avatar customization interactions chart" width="1657" height="666" loading="lazy" decoding="async"></figure>
+<div class="prose">
+<p>This reinforced an important learning during the project:</p>
+<p>Introducing deeper progression systems can improve engagement, but additional layers should not slow down or hide frequently used actions.</p>
+</div>
+<h4 class="h3">Reflection</h4>
+<div class="prose">
+<p>This project demonstrated how clearer progression and visible long-term goals can improve motivation in casual fitness games.</p>
+<p>More importantly, the final level-based structure created a scalable progression framework that could later be adapted across future game experiences without requiring large amounts of custom collectible content for every release.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="block block--band block--pink" aria-labelledby="cs2-title">
+<div class="wrap stack stack--lg">
+<h2 class="h2" id="cs2-title">CASE STUDY 2: REVAMP HOME PAGE</h2>
+<dl class="meta card card--butter">
+<div><dt>Role:</dt><dd>Sole Product Designer</dd></div>
+<div><dt>Team:</dt><dd>Product Owner, Engineering, QA</dd></div>
+<div><dt>Scope:</dt><dd>Redesigning the homepage to support content growth and faster access</dd></div>
+<div><dt>Delivery:</dt><dd>Designed ahead of sprint, released incrementally</dd></div>
+</dl>
+<div class="stack stack--lg">
+<h3 class="step"><span class="step__num">1</span><span>DISCOVERY</span></h3>
+<div class="pair">
+<figure class="shot shot--fit"><img src="https://framerusercontent.com/images/BFnL8VjiTTCdlN62vLObITa451c.png?width=476&amp;height=405" alt="Homepage, discovery, image 1 of 2" width="476" height="405" loading="lazy" decoding="async"></figure>
+<figure class="shot shot--fit"><img src="https://framerusercontent.com/images/Sn5BbTzfz7nc3o4tCq2MwtSgISw.png?width=1268&amp;height=771" alt="Homepage, discovery, image 2 of 2" width="1268" height="771" loading="lazy" decoding="async"></figure>
+</div>
+<div class="prose">
+<p>To understand where users were experiencing friction, I worked with the product owner to review user interview, surveys, and support tickets.</p>
+<p>Several recurring issues appeared in the existing homepage.</p>
+</div>
+<p><strong>What users struggled with</strong></p>
+<ul class="list">
+<li>Important information such as stats and achievements required multiple steps to access</li>
+<li>The icon-only navigation was not always easy to understand</li>
+<li>Some users found it not really personalize</li>
+<li>Recently introduced features were often overlooked</li>
+</ul>
+</div>
+<div class="stack stack--lg">
+<h3 class="step"><span class="step__num">2</span><span>PROBLEM FRAMING</span></h3>
+<figure class="shot"><img src="https://framerusercontent.com/images/x8OlOV43bkqhyd3ozR0zlsy1Y.png?width=1920&amp;height=1080" alt="Homepage, problem framing" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+<div class="prose">
+<p>The homepage had grown over time without significant structural updates. New features were added into the existing layout, which made the experience less intuitive and increased visual complexity.</p>
+<p>The goal was not to redesign the homepage completely, but to improve how information was prioritized so users could find key actions more quickly.</p>
+</div>
+<div class="card card--mint">
+<p><strong>Goals</strong></p>
+<ul class="list">
+<li>Simplify the first-view experience</li>
+<li>Surface personal information more clearly</li>
+<li>Improve discoverability of newer features</li>
+<li>Reduce unnecessary navigation steps</li>
+<li>Keep the experience familiar for existing users</li>
+</ul>
+</div>
+</div>
+<div class="stack stack--lg">
+<h3 class="step"><span class="step__num">3</span><span>EXPLORATION</span></h3>
+<div class="prose">
+<p>As the homepage continued evolving, one key challenge was deciding how to balance quick workout access, personal progress, and content discovery within a limited space.</p>
+<p>To support that discussion, I explored several layout directions that prioritized different user needs. These concepts were used to align internally with the product owner before moving into implementation.</p>
+</div>
+<p><strong>Option 1: Community-first</strong></p>
+<figure class="shot"><img src="https://framerusercontent.com/images/pvIl5VPyL6BARKdLrgk1oUi6ZVY.png?width=1920&amp;height=1080" alt="Homepage option 1, community-first" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+<div class="prose">
+<p>This direction emphasized leaderboard and social engagement by bringing competitive features into the first visible area.</p>
+<p>We reviewed this direction because community interaction had become an important part of user retention. However, it reduced emphasis on workout access and added more visual density to the homepage.</p>
+</div>
+<p><strong>Option 2: Progress-first</strong></p>
+<figure class="shot"><img src="https://framerusercontent.com/images/FqHJ3xoWoIOkuslCTTzQXN4W3QY.png?width=1920&amp;height=1080" alt="Homepage option 2, progress-first" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+<div class="prose">
+<p>This concept prioritized achievements, streaks, and personal metrics at the top of the screen.</p>
+<p>It addressed feedback from users who wanted easier access to progress-related information. During review, we found it shifted too much focus away from workout browsing, which remained the most common primary action.</p>
+</div>
+<p><strong>Option 3: Balanced layout</strong></p>
+<figure class="shot"><img src="https://framerusercontent.com/images/eggIGCkiDwLdjPgenvAKQjizacQ.png?width=1920&amp;height=1080" alt="Homepage option 3, balanced layout" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+<div class="prose">
+<p>This concept combined both approaches by surfacing progress information while preserving quick access to workout categories.</p>
+<p>During discussion, this direction became the strongest base because it balanced the main user behaviors while remaining compatible with the existing product structure.</p>
+</div>
+<div class="prose">
+<p>Rather than moving directly into implementation, this option was used as the foundation for the final iteration.</p>
+</div>
+</div>
+<div class="stack stack--lg">
+<h3 class="step"><span class="step__num">4</span><span>DESIGN EXECUTION</span></h3>
+<div class="prose">
+<p>After aligning with the product owner, I used the third concept as the base direction and refined it further before implementation.</p>
+<p>The initial layout still required scrolling to access some content, so I adjusted the structure to keep key information and primary actions visible within a single screen.</p>
+</div>
+<figure class="shot"><img src="https://framerusercontent.com/images/Q5eO3UQwpH9i496No2VEJkiwM2E.png?width=2087&amp;height=1080" alt="Homepage, final design" width="2087" height="1080" loading="lazy" decoding="async"></figure>
+<ul class="list list--num">
+<li><strong>Surfaced personal progress</strong><br>
+I added widgets for Day Streak, Challenge Progress, and Level Progress directly on the homepage, allowing users to check important stats more quickly.</li>
+<li><strong>Prioritized key features</strong><br>
+Multiplayer and Easy Start were moved into more visible positions to improve access and encourage more frequent use.</li>
+<li><strong>Simplified category section</strong><br>
+The category area was reduced in size and unnecessary labels were removed, creating more space and reducing visual clutter.</li>
+<li><strong>Refined navigation</strong><br>
+I redesigned the horizontal home menu with larger touch targets and shorter labels, improving usability while creating a more balanced layout.</li>
+</ul>
+</div>
+<div class="stack stack--lg">
+<h3 class="step"><span class="step__num">5</span><span>VALIDATION</span></h3>
+<div class="prose">
+<p>After launch, I worked with the product owner to review early user feedback and observe how the updated homepage was being used.</p>
+</div>
+<h4 class="h3">Early Signals</h4>
+<figure class="shot"><img src="https://framerusercontent.com/images/Xg0aNXprXcS50V1y0RxxpkR7rIY.png?width=2274&amp;height=826" alt="Homepage, early signals" width="2274" height="826" loading="lazy" decoding="async"></figure>
+<div class="prose">
+<p>The redesign improved visibility of progress-related content and surfaced key actions more clearly. Several users shared positive reactions after the update, particularly around easier access to personal progress and featured content.</p>
+<p>Some users also mentioned they became more aware of features like Day Streak and Monthly Challenge once those sections were moved higher on the homepage.</p>
+</div>
+<h4 class="h3">Follow-up improvements</h4>
+<div class="prose">
+<p>The release also surfaced new issues, particularly for first-time users.</p>
+<p>Some users still found the homepage difficult to understand on first use, especially when navigating workout categories and understanding where to start.</p>
+<p>Based on this feedback, we planed to introduce a guided onboarding flow and later moved the category section into a dedicated page, replacing part of that space with personalized recommendations.</p>
+<p>These follow-up updates helped simplify the homepage further and supported faster workout entry.</p>
+</div>
+<h4 class="h3">Reflection</h4>
+<div class="prose">
+<p>This redesign improved discoverability, but it also showed that reorganizing content alone was not enough as the product continued growing.</p>
+<p>The homepage increasingly needed to adapt to different user behaviors, especially between first-time users and returning users - which led to later improvements around onboarding and personalized recommendations.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="block" aria-labelledby="gallery-title">
+<div class="wrap stack stack--lg">
+<h2 class="h2" id="gallery-title">DESIGN GALLERY</h2>
+<p class="lead">Aside from the case studies above, I also designed many other feature screens for this product. To keep the project concise, I won’t break down every flow in detail — but you can browse this gallery for a quick overview of the remaining designs.</p>
+<div class="carousel" data-carousel>
+<div class="carousel__track" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Design gallery">
+<div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="1 of 9"><figure class="shot"><img src="https://framerusercontent.com/images/Vz2ZlLYogHpi3gWYJ1Qaazedio.jpg?width=2880&amp;height=1620" alt="Design gallery, screen 1 of 9" width="2880" height="1620" loading="lazy" decoding="async"></figure></div>
+<div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="2 of 9"><figure class="shot"><img src="https://framerusercontent.com/images/tZoZ9nwcuWw8wgRG31D8rcjVGQ.jpg?width=1920&amp;height=1080" alt="Design gallery, screen 2 of 9" width="1920" height="1080" loading="lazy" decoding="async"></figure></div>
+<div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="3 of 9"><figure class="shot"><img src="https://framerusercontent.com/images/cNzLfxFDAMqzb8Od8ObM2LyU8g.jpg?width=1920&amp;height=1080" alt="Design gallery, screen 3 of 9" width="1920" height="1080" loading="lazy" decoding="async"></figure></div>
+<div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="4 of 9"><figure class="shot"><img src="https://framerusercontent.com/images/SxEcaeEh3OYkNK3HKav54zT5Kc.jpg?width=1920&amp;height=1080" alt="Design gallery, screen 4 of 9" width="1920" height="1080" loading="lazy" decoding="async"></figure></div>
+<div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="5 of 9"><figure class="shot"><img src="https://framerusercontent.com/images/0NlInvnGQZGFZ995ENB0XAvubpE.jpg?width=1920&amp;height=1080" alt="Design gallery, screen 5 of 9" width="1920" height="1080" loading="lazy" decoding="async"></figure></div>
+<div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="6 of 9"><figure class="shot"><img src="https://framerusercontent.com/images/l31qDyoqD9iR2bd8Fsz3o07lA.jpg?width=2880&amp;height=1620" alt="Design gallery, screen 6 of 9" width="2880" height="1620" loading="lazy" decoding="async"></figure></div>
+<div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="7 of 9"><figure class="shot"><img src="https://framerusercontent.com/images/gfWZ11MEwpDqj2nntBtMVrMtMs.jpg?width=2880&amp;height=1620" alt="Design gallery, screen 7 of 9" width="2880" height="1620" loading="lazy" decoding="async"></figure></div>
+<div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="8 of 9"><figure class="shot"><img src="https://framerusercontent.com/images/5gJwtrgBJqgnYXVFdySloJuPnM.png?width=1920&amp;height=1080" alt="Design gallery, screen 8 of 9" width="1920" height="1080" loading="lazy" decoding="async"></figure></div>
+<div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="9 of 9"><figure class="shot"><img src="https://framerusercontent.com/images/BV5SF0B3mSWFJxukIgOrzXQ9HVI.jpg?width=1920&amp;height=1080" alt="Design gallery, screen 9 of 9" width="1920" height="1080" loading="lazy" decoding="async"></figure></div>
+</div>
+<button class="carousel__btn carousel__btn--prev" type="button" data-prev aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+<button class="carousel__btn carousel__btn--next" type="button" data-next aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+</div>
+</div>
+</section>
+
+<section class="block block--band block--butter" aria-labelledby="more-from-aviron">
+<div class="wrap stack stack--lg">
+<h2 class="h2" id="more-from-aviron">More from Aviron</h2>
+<nav class="project-links project-links--2" aria-label="More from Aviron">
+<a class="project-link project-link--mint" href="aviron-ds.html"><span>Design System</span><span class="project-link__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+<a class="project-link project-link--pink" href="aviron-mobile.html"><span>MyAviron Companian</span><span class="project-link__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+</nav>
+</div>
+</section>
+
+    <section class="connect" aria-labelledby="connect-title">
+      <svg class="deco deco--connect-burst" aria-hidden="true"><use href="#burst"/></svg>
+      <svg class="deco deco--connect-squiggle" aria-hidden="true"><use href="#squiggle"/></svg>
+      <svg class="deco deco--connect-blob" aria-hidden="true"><use href="#blob"/></svg>
+
+      <h2 class="connect__title" id="connect-title">Still scrolling? Let’s connect!</h2>
+      <p class="connect__text">You made it this far, so why not say hello?</p>
+      <a class="btn btn--peach btn--large" href="mailto:thisisdat098@gmail.com">CONTACT ME</a>
+    </section>
+
+  </main>
+</body>
+</html>

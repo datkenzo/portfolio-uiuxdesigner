@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Framer Site</title>
+  <meta name="description" content="Made with Framer">
+
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="preload" href="assets/fonts/kumbh-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <!-- Decorative shapes shared with the homepage -->
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="burst" viewBox="0 0 100 100">
+        <polygon points="50.0,4.0 57.0,14.7 67.6,7.5 70.0,20.1 82.5,17.5 79.9,30.0 92.5,32.4 85.3,43.0 96.0,50.0 85.3,57.0 92.5,67.6 79.9,70.0 82.5,82.5 70.0,79.9 67.6,92.5 57.0,85.3 50.0,96.0 43.0,85.3 32.4,92.5 30.0,79.9 17.5,82.5 20.1,70.0 7.5,67.6 14.7,57.0 4.0,50.0 14.7,43.0 7.5,32.4 20.1,30.0 17.5,17.5 30.0,20.1 32.4,7.5 43.0,14.7"
+                 fill="currentColor" stroke="var(--ink)" stroke-width="var(--deco-stroke, 4)" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="sparkle" viewBox="0 0 100 100">
+        <path d="M50 5C54 33 67 46 95 50C67 54 54 67 50 95C46 67 33 54 5 50C33 46 46 33 50 5Z"
+              fill="currentColor" stroke="var(--ink)" stroke-width="var(--deco-stroke, 4)" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="squiggle" viewBox="0 0 160 40">
+        <path d="M6 20Q22 2 38 20T70 20T102 20T134 20T154 20" fill="none"
+              stroke="var(--ink)" stroke-width="calc(var(--deco-stroke, 4) * 1.4)" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="blob" viewBox="0 0 100 100">
+        <path d="M50 6c14 0 20 10 30 14 12 5 18 18 14 30-4 14-14 18-24 24-12 7-28 8-40 0C18 68 6 60 6 46 6 32 16 26 22 18 30 8 38 6 50 6z"
+              fill="currentColor" stroke="var(--ink)" stroke-width="var(--deco-stroke, 4)" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="ring" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="40" fill="none" stroke="var(--ink)" stroke-width="calc(var(--deco-stroke, 4) * 2)"/>
+      </symbol>
+      <symbol id="dot" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="44" fill="currentColor" stroke="var(--ink)" stroke-width="var(--deco-stroke, 4)"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span class="nav__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">Home</a></li>
+          <li><a class="nav__link" href="https://drive.google.com/file/d/1IyiNxV_8yLdAtv77d773R05TLhrPXiHI/view?usp=sharing">Resume</a></li>
+          <li><a class="nav__link" href="index.html">Work</a></li>
+        </ul>
+        <p class="nav__email">thisisdat098@gmail.com</p>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+<section class="page-hero" aria-labelledby="page-title">
+<svg class="deco deco--page-sparkle" aria-hidden="true"><use href="#sparkle"/></svg>
+<svg class="deco deco--page-burst" aria-hidden="true"><use href="#burst"/></svg>
+<div class="page-hero__grid">
+<div class="page-hero__copy">
+<h1 class="page-title" id="page-title"><span class="page-title__small">Designer at</span> <span class="page-title__big">Aviron Interactive</span></h1>
+<p class="lead"><strong>I worked as a Product Designer at Aviron, where I had the opportunity to help shape a unique fitness entertainment experience. Beyond UI design, I actively collaborated on defining and shaping product features, from early ideas to implementation.</strong> &nbsp;For the first 1.5 years, I was the solo designer — responsible for everything from designing mobile apps and connected fitness games (for rowing machines, bikes, and treadmills), to CMS tools and internal platforms. I also built the company’s design system from scratch, setting the foundations for consistency and scalability across products. It was a hands-on, fast-paced role that allowed me to wear many hats and grow both creatively and strategically.</p>
+</div>
+</div>
+</section>
+
+<section class="block">
+<div class="wrap stack stack--lg">
+<nav class="project-links project-links--3 project-links--feature" aria-label="Aviron projects">
+<a class="project-link project-link--mint" href="aviron-ds.html"><span>Design System</span><span class="project-link__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+<a class="project-link project-link--sky" href="aviron-client.html"><span>Client App</span><span class="project-link__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+<a class="project-link project-link--pink" href="aviron-mobile.html"><span>MyAviron Companian</span><span class="project-link__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+</nav>
+</div>
+</section>
+
+<section class="block block--band block--butter" aria-labelledby="from-here-to-there">
+<div class="wrap stack stack--lg">
+<h2 class="h2" id="from-here-to-there">From Here to There</h2>
+<p class="more__intro">My journey didn’t stop here. Let’s jump into the next part.</p>
+<nav class="project-links project-links--2" aria-label="From Here to There">
+<a class="project-link project-link--pink" href="yan.html"><span>Graphic Designer at YAN</span><span class="project-link__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+<a class="project-link project-link--mint" href="tmt.html"><span>UI/UX Designer at TMT</span><span class="project-link__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+</nav>
+</div>
+</section>
+
+    <section class="connect" aria-labelledby="connect-title">
+      <svg class="deco deco--connect-burst" aria-hidden="true"><use href="#burst"/></svg>
+      <svg class="deco deco--connect-squiggle" aria-hidden="true"><use href="#squiggle"/></svg>
+      <svg class="deco deco--connect-blob" aria-hidden="true"><use href="#blob"/></svg>
+
+      <h2 class="connect__title" id="connect-title">Still scrolling? Let’s connect!</h2>
+      <p class="connect__text">You made it this far, so why not say hello?</p>
+      <a class="btn btn--peach btn--large" href="mailto:thisisdat098@gmail.com">CONTACT ME</a>
+    </section>
+
+  </main>
+</body>
+</html>

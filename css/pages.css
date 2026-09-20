@@ -1,0 +1,478 @@
+/* ==========================================================================
+   Secondary pages (project & role pages)
+   Loaded AFTER styles.css, on secondary pages only. The homepage never loads
+   this file, so nothing here can change it. All colours, outlines, shadows,
+   radii and type come from the tokens defined in styles.css.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Layout primitives
+   -------------------------------------------------------------------------- */
+blockquote, dl { margin: 0; }
+
+.wrap { width: 100%; max-width: 1240px; margin-inline: auto; }
+
+.block {
+  position: relative;
+  padding: clamp(48px, 6vw, 88px) var(--pad);
+  overflow-x: clip;
+}
+.block--band {
+  background: var(--bg-band, var(--butter));
+  border-block: var(--line) solid var(--ink);
+}
+.block--butter { --bg-band: var(--butter); }
+.block--mint   { --bg-band: var(--mint); }
+.block--sky    { --bg-band: var(--sky); }
+.block--pink   { --bg-band: var(--pink); }
+.block--peach  { --bg-band: var(--peach); }
+.block--lilac  { --bg-band: var(--lilac); }
+.block--white  { --bg-band: var(--white); }
+.block + .block:not(.block--band) { padding-top: clamp(16px, 3vw, 40px); }
+
+.stack > * + * { margin-top: var(--gap, 1.25rem); }
+.stack--lg { --gap: 2rem; }
+.stack--lg > .stack { --gap: 1.25rem; }
+.wrap.stack--lg > .stack + .stack { margin-top: clamp(2.5rem, 4vw, 3.5rem); }
+.stack--xl { --gap: clamp(2rem, 4vw, 3.5rem); }
+
+.h2 {
+  font-size: clamp(2rem, 1.3rem + 2.6vw, 3.5rem);
+  text-wrap: balance;
+}
+.h3 {
+  font-size: clamp(1.5rem, 1.15rem + 1.2vw, 2.25rem);
+  text-wrap: balance;
+}
+.h4 {
+  font-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.5rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 800;
+}
+
+.prose { max-width: 68ch; line-height: 1.7; }
+.prose p + p { margin-top: 1em; }
+.lead {
+  max-width: 62ch;
+  font-size: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+  line-height: 1.55;
+  font-weight: 600;
+}
+.center { margin-inline: auto; text-align: center; }
+
+/* --------------------------------------------------------------------------
+   2. Page hero (title lockups)
+   -------------------------------------------------------------------------- */
+.page-hero {
+  position: relative;
+  padding: clamp(24px, 4vw, 56px) var(--pad) clamp(56px, 7vw, 96px);
+  overflow-x: clip;
+}
+.page-hero__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(28px, 4vw, 56px);
+  max-width: 1240px;
+  margin-inline: auto;
+  align-items: center;
+}
+.page-hero__copy > * + * { margin-top: clamp(20px, 2.5vw, 32px); }
+
+.page-title {
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+.page-title__small {
+  display: block;
+  font-size: clamp(1.75rem, 1.1rem + 2.4vw, 3.25rem);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.2em;
+}
+.page-title__big {
+  display: block;
+  font-size: clamp(2.6rem, 12vw, 7rem);
+  line-height: 0.95;
+}
+.page-title__big + .page-title__small { margin: 0.25em 0 0; }
+
+.page-title--sentence { font-size: clamp(2.25rem, 1.3rem + 3.6vw, 4.75rem); line-height: 1.02; }
+
+.hero-figure {
+  justify-self: center;
+  width: min(100%, 460px);
+}
+
+@media (min-width: 900px) {
+  .page-title__big { font-size: clamp(3.25rem, 7.5vw, 7rem); }
+  .page-hero__grid--split { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); }
+  .page-hero__grid--media-first { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
+  .page-hero__grid--media-first .hero-figure { order: -1; }
+}
+
+.deco--page-sparkle { --s: clamp(36px, 5vw, 64px); --c: var(--mint); top: clamp(12px, 3vw, 40px); right: var(--pad); }
+.deco--page-burst   { --s: clamp(44px, 8vw, 120px); --c: var(--pink); bottom: 10px; right: calc(var(--pad) * 0.6); }
+
+/* --------------------------------------------------------------------------
+   3. Cards, lists, dividers
+   -------------------------------------------------------------------------- */
+.card {
+  padding: clamp(24px, 2.6vw, 36px);
+  background: var(--bg-card, var(--white));
+  border: var(--line) solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.card > * + * { margin-top: 1rem; }
+.card--mint   { --bg-card: var(--mint); }
+.card--butter { --bg-card: var(--butter); }
+.card--sky    { --bg-card: var(--sky); }
+.card--pink   { --bg-card: var(--pink); }
+.card--peach  { --bg-card: var(--peach); }
+.card--lilac  { --bg-card: var(--lilac); }
+
+.cards { display: grid; gap: clamp(20px, 2.5vw, 32px); }
+@media (min-width: 720px) { .cards--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 900px) { .cards--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 720px) and (max-width: 899px) { .cards--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.cards > .card { align-self: stretch; }
+
+.list { display: grid; gap: 0.75rem; }
+.list li { position: relative; padding-left: 34px; line-height: 1.55; }
+.list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.35em;
+  width: 16px;
+  height: 16px;
+  background: var(--dot, var(--butter));
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+}
+.list ul { margin-top: 0.75rem; --dot: var(--pink); }
+.list ul li::before { border-radius: 4px; width: 14px; height: 14px; }
+
+.list--num { counter-reset: n; gap: 1.25rem; }
+.list--num > li { counter-increment: n; padding-left: 52px; }
+.list--num > li::before {
+  content: counter(n);
+  top: 0;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 1.0625rem;
+  line-height: 1;
+}
+
+/* Heading + small tagged list, reusing the homepage "skill" cards */
+.skill--pink  { --bg-card: var(--pink); }
+.skill--peach { --bg-card: var(--peach); }
+.skill--lilac { --bg-card: var(--lilac); }
+.token-groups .skill:last-child { grid-column: auto; }
+.token-groups .skill { gap: 20px; }
+.token-groups .chips li { font-size: 0.9375rem; }
+
+.tree { display: grid; gap: 10px; }
+.tree > li {
+  padding: 10px 16px;
+  background: var(--white);
+  border: 3px solid var(--ink);
+  border-radius: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.tree > li > ul { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.tree > li > ul > li {
+  padding: 4px 12px;
+  background: var(--butter);
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.meta { display: grid; gap: 14px; }
+.meta > div { display: grid; gap: 2px; }
+.meta dt { font-weight: 800; }
+.meta dd { margin: 0; line-height: 1.55; }
+@media (min-width: 720px) {
+  .meta > div { grid-template-columns: 110px minmax(0, 1fr); gap: 20px; }
+}
+
+.step { display: flex; align-items: center; gap: 16px; }
+.step__num {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  background: var(--butter);
+  border: var(--line) solid var(--ink);
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.quote {
+  padding: clamp(20px, 2.4vw, 32px);
+  background: var(--pink);
+  border: var(--line) solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+  font-weight: 700;
+  line-height: 1.5;
+}
+.quote p + p { margin-top: 0.75em; }
+
+/* --------------------------------------------------------------------------
+   4. Images & media
+   -------------------------------------------------------------------------- */
+.shot {
+  overflow: hidden;
+  background: var(--white);
+  border: var(--line) solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.shot img { display: block; width: 100%; height: auto; }
+.shot figcaption {
+  padding: 12px 20px;
+  background: var(--butter);
+  border-top: 3px solid var(--ink);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.shot--fit { width: fit-content; max-width: 100%; }
+.shot--fit img { width: auto; max-width: 100%; }
+.shot--tint { background: var(--bg-shot, var(--lilac)); }
+.shot--lilac { --bg-shot: var(--lilac); }
+.shot--mint  { --bg-shot: var(--mint); }
+.shot--peach { --bg-shot: var(--peach); }
+.shot--sky   { --bg-shot: var(--sky); }
+.shot--flush { box-shadow: none; }
+
+.shots-stack { display: grid; gap: clamp(20px, 2.5vw, 32px); }
+.shots-stack > .shot { justify-self: stretch; }
+.shots-stack > .shot--fit { justify-self: start; }
+
+.grid-2 { display: grid; gap: clamp(20px, 2.5vw, 32px); align-items: start; }
+@media (min-width: 720px) { .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.pair { display: flex; flex-wrap: wrap; gap: clamp(20px, 2.5vw, 32px); align-items: flex-start; }
+
+/* Rows of images that keep the same scale on wide screens (each image grows in
+   proportion to its own width), never exceed their natural size, and stack into
+   tidy rows on tablets and one column on phones. */
+.strip {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 1.6vw, 20px);
+  margin-inline: auto;
+  width: 100%;
+}
+.strip__row {
+  display: flex;
+  flex: var(--w) 1 0px;
+  min-width: 0;
+  max-width: calc(var(--w) * 1px);
+  align-items: center;
+  gap: clamp(12px, 1.6vw, 20px);
+}
+.strip .shot {
+  flex: var(--w) 1 0px;
+  min-width: 0;
+  max-width: calc(var(--w) * 1px);
+  box-shadow: var(--shadow-sm);
+}
+@media (max-width: 899px) {
+  .strip { flex-direction: column; align-items: center; }
+  .strip__row { flex: none; width: 100%; }
+}
+@media (max-width: 599px) {
+  .strip__row { flex-direction: column; }
+  .strip .shot { flex: none; width: 100%; }
+}
+
+/* Phone screenshots */
+.shots {
+  display: grid;
+  gap: clamp(16px, 2.5vw, 32px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+}
+.shots--many { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.shots .shot { box-shadow: var(--shadow-sm); border-radius: 22px; }
+@media (min-width: 720px) and (max-width: 899px) { .shots--many { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 719px) {
+  .shots, .shots--many { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 479px) {
+  .shots, .shots--many { grid-template-columns: minmax(0, 1fr); max-width: 300px; margin-inline: auto; }
+}
+
+.video {
+  overflow: hidden;
+  background: var(--ink);
+  border: var(--line) solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.video video { display: block; width: 100%; height: auto; max-height: 80vh; }
+
+/* Opt-in: an image with no stroke, shadow or backing panel. Used only where a page asks for it. */
+.shot.shot--plain { border: 0; box-shadow: none; background: transparent; }
+.shot.shot--bare  { border-radius: 0; overflow: visible; }
+.hero-figure--fill { width: min(100%, 560px); }
+
+/* Yan page: tool logos (Photoshop / Illustrator). On desktop each is 20% of the size of a
+   half-width image cell; smaller screens keep the original two-up / stacked layout. */
+.app-logos { display: grid; gap: clamp(20px, 2.5vw, 32px); align-items: center; }
+@media (min-width: 720px) { .app-logos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 900px) {
+  .app-logos { --logo-gap: clamp(20px, 2.5vw, 32px); display: flex; gap: var(--logo-gap); }
+  .app-logos .shot { flex: none; width: max(96px, calc((100% - var(--logo-gap)) / 10)); }
+}
+
+/* --------------------------------------------------------------------------
+   5. Carousel (Aviron client app · design gallery)
+   -------------------------------------------------------------------------- */
+.carousel { position: relative; }
+.carousel__track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 4px 8px 12px 4px;              /* room for the hard shadow */
+  overscroll-behavior-x: contain;
+}
+.carousel__track::-webkit-scrollbar { display: none; }
+.carousel__slide { flex: 0 0 100%; scroll-snap-align: center; min-width: 0; }
+.carousel__slide .shot { box-shadow: var(--shadow-sm); }
+
+.carousel__btn {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  background: var(--butter);
+  border: var(--line) solid var(--ink);
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+  color: var(--ink);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: box-shadow 0.15s ease, background-color 0.15s ease;
+}
+.carousel__btn:hover { background: var(--peach); box-shadow: 6px 6px 0 var(--ink); }
+.carousel__btn:active { box-shadow: 1px 1px 0 var(--ink); }
+.carousel__btn--prev { left: 14px; }
+.carousel__btn--next { right: 22px; }
+.carousel__btn svg { width: 24px; height: 24px; }
+@media (max-width: 719px) {
+  .carousel__btn { width: 48px; height: 48px; }
+  .carousel__btn--prev { left: 8px; }
+  .carousel__btn--next { right: 16px; }
+}
+
+/* --------------------------------------------------------------------------
+   6. Project links ("More from …", "From Here to There")
+   -------------------------------------------------------------------------- */
+.project-links { display: grid; gap: clamp(16px, 2vw, 24px); }
+@media (min-width: 720px) {
+  .project-links { grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr)); }
+}
+.project-links--3 { --cols: 3; }
+@media (min-width: 720px) and (max-width: 899px) {
+  .project-links--3 { --cols: 2; }
+}
+
+.project-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 108px;
+  padding: 22px 26px;
+  background: var(--bg-card, var(--butter));
+  border: var(--line) solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  color: var(--ink);
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.project-link:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--ink); }
+.project-link:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+.project-link--mint   { --bg-card: var(--mint); }
+.project-link--butter { --bg-card: var(--butter); }
+.project-link--sky    { --bg-card: var(--sky); }
+.project-link--pink   { --bg-card: var(--pink); }
+.project-link--peach  { --bg-card: var(--peach); }
+.project-link--lilac  { --bg-card: var(--lilac); }
+.project-link__arrow {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  background: var(--white);
+  border: var(--line) solid var(--ink);
+  border-radius: 50%;
+}
+.project-link__arrow svg { width: 22px; height: 22px; }
+
+.project-links--feature .project-link {
+  min-height: clamp(150px, 16vw, 220px);
+  align-items: flex-end;
+  font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.25rem);
+}
+.project-links--feature .project-link__arrow { align-self: flex-start; order: -1; margin-bottom: auto; }
+.project-links--feature .project-link { flex-direction: column; align-items: flex-start; justify-content: space-between; }
+
+.more__intro { max-width: 40ch; font-size: clamp(1.125rem, 1rem + 0.6vw, 1.5rem); font-weight: 600; }
+
+/* --------------------------------------------------------------------------
+   7. Small screens
+   -------------------------------------------------------------------------- */
+@media (max-width: 719px) {
+  .card { box-shadow: var(--shadow); }
+  .project-link { min-height: 92px; padding: 18px 20px; }
+  .project-link__arrow { width: 44px; height: 44px; }
+  .step__num { width: 44px; height: 44px; font-size: 1.25rem; }
+  .list li { padding-left: 30px; }
+  .list--num > li { padding-left: 48px; }
+}
+
+/* --------------------------------------------------------------------------
+   8. Helpers
+   -------------------------------------------------------------------------- */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

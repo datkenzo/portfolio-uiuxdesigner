@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Framer Site</title>
+  <meta name="description" content="Made with Framer">
+
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="preload" href="assets/fonts/kumbh-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <!-- Decorative shapes shared with the homepage -->
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="burst" viewBox="0 0 100 100">
+        <polygon points="50.0,4.0 57.0,14.7 67.6,7.5 70.0,20.1 82.5,17.5 79.9,30.0 92.5,32.4 85.3,43.0 96.0,50.0 85.3,57.0 92.5,67.6 79.9,70.0 82.5,82.5 70.0,79.9 67.6,92.5 57.0,85.3 50.0,96.0 43.0,85.3 32.4,92.5 30.0,79.9 17.5,82.5 20.1,70.0 7.5,67.6 14.7,57.0 4.0,50.0 14.7,43.0 7.5,32.4 20.1,30.0 17.5,17.5 30.0,20.1 32.4,7.5 43.0,14.7"
+                 fill="currentColor" stroke="var(--ink)" stroke-width="var(--deco-stroke, 4)" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="sparkle" viewBox="0 0 100 100">
+        <path d="M50 5C54 33 67 46 95 50C67 54 54 67 50 95C46 67 33 54 5 50C33 46 46 33 50 5Z"
+              fill="currentColor" stroke="var(--ink)" stroke-width="var(--deco-stroke, 4)" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="squiggle" viewBox="0 0 160 40">
+        <path d="M6 20Q22 2 38 20T70 20T102 20T134 20T154 20" fill="none"
+              stroke="var(--ink)" stroke-width="calc(var(--deco-stroke, 4) * 1.4)" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="blob" viewBox="0 0 100 100">
+        <path d="M50 6c14 0 20 10 30 14 12 5 18 18 14 30-4 14-14 18-24 24-12 7-28 8-40 0C18 68 6 60 6 46 6 32 16 26 22 18 30 8 38 6 50 6z"
+              fill="currentColor" stroke="var(--ink)" stroke-width="var(--deco-stroke, 4)" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="ring" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="40" fill="none" stroke="var(--ink)" stroke-width="calc(var(--deco-stroke, 4) * 2)"/>
+      </symbol>
+      <symbol id="dot" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="44" fill="currentColor" stroke="var(--ink)" stroke-width="var(--deco-stroke, 4)"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span class="nav__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">Home</a></li>
+          <li><a class="nav__link" href="https://drive.google.com/file/d/1IyiNxV_8yLdAtv77d773R05TLhrPXiHI/view?usp=sharing">Resume</a></li>
+          <li><a class="nav__link" href="index.html">Work</a></li>
+        </ul>
+        <p class="nav__email">thisisdat098@gmail.com</p>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+<section class="page-hero" aria-labelledby="page-title">
+<svg class="deco deco--page-sparkle" aria-hidden="true"><use href="#sparkle"/></svg>
+<svg class="deco deco--page-burst" aria-hidden="true"><use href="#burst"/></svg>
+<div class="page-hero__grid">
+<div class="page-hero__copy">
+<h1 class="page-title page-title--sentence" id="page-title">Landing page design and management platform.</h1>
+<figure class="shot shot--lilac"><img src="https://framerusercontent.com/images/x9nZoHEh9AdHdfBcu2GMIkIYSYo.png?width=1952&amp;height=908" alt="Tweb, overview" width="1952" height="908" decoding="async"></figure>
+<p class="lead">Tweb Includes 2 parts, the first part is for data management and setup, the rest is for interface design</p>
+</div>
+</div>
+</section>
+
+<section class="block block--band block--mint" aria-labelledby="admin-title">
+<div class="wrap stack stack--lg">
+<h2 class="h2" id="admin-title">ADMIN MANAGER</h2>
+<div class="stack">
+<h3 class="h3">Overview, Template List</h3>
+<div class="grid-2">
+<figure class="shot"><img src="https://framerusercontent.com/images/F5WRRea3dPnnDTZNanr2UbOQpKs.jpg?scale-down-to=1024&amp;width=1920&amp;height=1080" alt="Overview, Template List, screen 1 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/JIwovuyrwDeMyBiTR9Cji9JgKEw.jpg?width=1920&amp;height=1080" alt="Overview, Template List, screen 2 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+<div class="stack">
+<h3 class="h3">Website Parameter</h3>
+<div class="grid-2">
+<figure class="shot"><img src="https://framerusercontent.com/images/jqVisjDoFE9FAoX0Y4zBG4iD9aA.jpg?scale-down-to=1024&amp;width=1920&amp;height=1080" alt="Website Parameter, screen 1 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/l3MtXkMWO47yvMcPYH77c0AIs.jpg?scale-down-to=1024&amp;width=1920&amp;height=1080" alt="Website Parameter, screen 2 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+<div class="stack">
+<h3 class="h3">Data, Media Management</h3>
+<div class="grid-2">
+<figure class="shot"><img src="https://framerusercontent.com/images/VMym919i1daA1H8HimWejq1dT8.jpg?width=1920&amp;height=1080" alt="Data, Media Management, screen 1 of 4" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/9mOpwRmbHV4xocBzgKZmeWqTeQc.jpg?scale-down-to=1024&amp;width=1920&amp;height=1079" alt="Data, Media Management, screen 2 of 4" width="1920" height="1079" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/1iB3ap6UyRpCpIxVg1JuOSbboVo.jpg?scale-down-to=1024&amp;width=1920&amp;height=1079" alt="Data, Media Management, screen 3 of 4" width="1920" height="1079" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/rkjJU5jmio6hgO0e4rATMoHM0.jpg?scale-down-to=1024&amp;width=1920&amp;height=1080" alt="Data, Media Management, screen 4 of 4" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+</div>
+</section>
+
+<section class="block" aria-labelledby="tool-title">
+<div class="wrap stack stack--lg">
+<h2 class="h2" id="tool-title">DESIGN TOOL</h2>
+<p class="lead">The functions are designed mainly based on drag and drop operation, simple and convenient for users</p>
+<div class="stack">
+<h3 class="h3">General Function</h3>
+<div class="strip" style="max-width:960px">
+<div class="strip__row" style="--w:1775">
+<figure class="shot" style="--w:489"><img src="https://framerusercontent.com/images/5suKHmbXpvFWC7JFJgmHMQ58.jpg?scale-down-to=1024&amp;width=489&amp;height=1545" alt="General Function, screen 1 of 5" width="489" height="1545" loading="lazy" decoding="async"></figure>
+<figure class="shot" style="--w:506"><img src="https://framerusercontent.com/images/hC1gOe2ArtpU1KYLV27et5QmBI.jpg?scale-down-to=1024&amp;width=506&amp;height=1030" alt="General Function, screen 2 of 5" width="506" height="1030" loading="lazy" decoding="async"></figure>
+<figure class="shot" style="--w:390"><img src="https://framerusercontent.com/images/6UbNn5QUyiKOksvvPujU36TlVs.jpg?width=390&amp;height=1030" alt="General Function, screen 3 of 5" width="390" height="1030" loading="lazy" decoding="async"></figure>
+<figure class="shot" style="--w:390"><img src="https://framerusercontent.com/images/TNJNtnlQz9UpBqFScNKYTei3pl8.jpg?scale-down-to=1024&amp;width=390&amp;height=1030" alt="General Function, screen 4 of 5" width="390" height="1030" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+<div class="strip">
+<div class="strip__row" style="--w:1920">
+<figure class="shot" style="--w:1920"><img src="https://framerusercontent.com/images/xw5ZZ7oz83AX4zD1hgQinqcAuuU.jpg?scale-down-to=1024&amp;width=1920&amp;height=1080" alt="General Function, screen 5 of 5" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+</div>
+<div class="stack">
+<h3 class="h3">Detailed customization of Text Fill</h3>
+<div class="strip">
+<div class="strip__row" style="--w:800">
+<figure class="shot" style="--w:400"><img src="https://framerusercontent.com/images/gMh9ftGkzgeY1syJV8L7VnZ0Jg0.jpg?width=400&amp;height=1183" alt="Detailed customization of Text Fill, screen 1 of 3" width="400" height="1183" loading="lazy" decoding="async"></figure>
+<figure class="shot" style="--w:400"><img src="https://framerusercontent.com/images/5yOpSi3EGNwn4wzSUiqpl8Y0c.jpg?width=400&amp;height=1024" alt="Detailed customization of Text Fill, screen 2 of 3" width="400" height="1024" loading="lazy" decoding="async"></figure>
+</div>
+<div class="strip__row" style="--w:1920">
+<figure class="shot" style="--w:1920"><img src="https://framerusercontent.com/images/J64CIIeFqNXA4H67TGocWoIxPQ.jpg?scale-down-to=1024&amp;width=1920&amp;height=1239" alt="Detailed customization of Text Fill, screen 3 of 3" width="1920" height="1239" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+</div>
+<div class="stack">
+<h3 class="h3">Detailed customization of Image</h3>
+<div class="strip">
+<div class="strip__row" style="--w:800">
+<figure class="shot" style="--w:400"><img src="https://framerusercontent.com/images/JCpCbByX7eGBcPC4ipwfsSkdKrg.jpg?width=400&amp;height=1122" alt="Detailed customization of Image, screen 1 of 3" width="400" height="1122" loading="lazy" decoding="async"></figure>
+<figure class="shot" style="--w:400"><img src="https://framerusercontent.com/images/eirdvS0Z3xuyqn4GIMqmDV7dtw.jpg?width=400&amp;height=1024" alt="Detailed customization of Image, screen 2 of 3" width="400" height="1024" loading="lazy" decoding="async"></figure>
+</div>
+<div class="strip__row" style="--w:1920">
+<figure class="shot" style="--w:1920"><img src="https://framerusercontent.com/images/xMTKbCo4mLriqSI1UVuQWMwsu0.jpg?width=1920&amp;height=1266" alt="Detailed customization of Image, screen 3 of 3" width="1920" height="1266" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+</div>
+<div class="stack">
+<h3 class="h3">Button and Shape</h3>
+<div class="grid-2">
+<figure class="shot"><img src="https://framerusercontent.com/images/HzZfMuhZQPNLc1UAXmRzUZRESVg.jpg?scale-down-to=1024&amp;width=1920&amp;height=1080" alt="Button and Shape, screen 1 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/s30jrI3pJ132Onx6o85wKpd3ZEI.jpg?scale-down-to=1024&amp;width=1920&amp;height=1080" alt="Button and Shape, screen 2 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+<div class="stack">
+<h3 class="h3">Video and Gallery</h3>
+<div class="grid-2">
+<figure class="shot"><img src="https://framerusercontent.com/images/NqCfzat1WzugdebmJz4yz4giWhg.jpg?scale-down-to=1024&amp;width=1920&amp;height=1080" alt="Video and Gallery, screen 1 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/3w8L3b1yONTrLXaMAeANTY0.jpg?scale-down-to=1024&amp;width=1920&amp;height=1080" alt="Video and Gallery, screen 2 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+<div class="stack">
+<h3 class="h3">Preview with Responsive</h3>
+<div class="grid-2">
+<figure class="shot"><img src="https://framerusercontent.com/images/DWkH3wsBAnzjbvC9ykUUTDJM14.jpg?scale-down-to=1024&amp;width=1920&amp;height=1080" alt="Preview with Responsive, screen 1 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+<figure class="shot"><img src="https://framerusercontent.com/images/aI9twgQOXCfzzGIh21Xx2HW9vO4.jpg?scale-down-to=1024&amp;width=1920&amp;height=1080" alt="Preview with Responsive, screen 2 of 2" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+</div>
+</div>
+</div>
+</section>
+
+<section class="block block--band block--butter" aria-labelledby="more-from-tmt">
+<div class="wrap stack stack--lg">
+<h2 class="h2" id="more-from-tmt">More from TMT</h2>
+<nav class="project-links project-links--2" aria-label="More from TMT">
+<a class="project-link project-link--sky" href="tshop.html"><span>Tshop Seller Center</span><span class="project-link__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+</nav>
+</div>
+</section>
+
+    <section class="connect" aria-labelledby="connect-title">
+      <svg class="deco deco--connect-burst" aria-hidden="true"><use href="#burst"/></svg>
+      <svg class="deco deco--connect-squiggle" aria-hidden="true"><use href="#squiggle"/></svg>
+      <svg class="deco deco--connect-blob" aria-hidden="true"><use href="#blob"/></svg>
+
+      <h2 class="connect__title" id="connect-title">Still scrolling? Let’s connect!</h2>
+      <p class="connect__text">You made it this far, so why not say hello?</p>
+      <a class="btn btn--peach btn--large" href="mailto:thisisdat098@gmail.com">CONTACT ME</a>
+    </section>
+
+  </main>
+</body>
+</html>
