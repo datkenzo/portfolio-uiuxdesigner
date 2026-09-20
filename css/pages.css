@@ -476,3 +476,128 @@ blockquote, dl { margin: 0; }
   white-space: nowrap;
   border: 0;
 }
+
+/* --------------------------------------------------------------------------
+   9. On-page navigation (built by js/toc.js from each page's <h2> headings)
+   Wide screens: a slim rail of bars at the right edge; hover it to open the list.
+   Smaller screens: a round button in the bottom-right corner; tap it to open the list.
+   -------------------------------------------------------------------------- */
+main h2 { scroll-margin-top: 32px; }
+
+.toc {
+  position: fixed;
+  z-index: 40;
+  right: clamp(8px, 1.2vw, 24px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.toc__rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 8px;
+  background: var(--white);
+  border: var(--line) solid var(--ink);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+.toc.is-open .toc__rail { background: var(--butter); }
+
+.toc__bars { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.toc__bars i {
+  display: block;
+  width: 14px;
+  height: 4px;
+  background: var(--ink);
+  border-radius: 2px;
+  opacity: 0.28;
+  transition: width 0.2s ease, opacity 0.2s ease;
+}
+.toc__bars i.is-active { width: 20px; opacity: 1; }
+
+.toc__icon { display: none; }
+
+.toc__popover {
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  padding-right: 14px;                 /* invisible bridge so the list stays open while the pointer crosses the gap */
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(8px, -50%);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
+}
+.toc.is-open .toc__popover {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, -50%);
+  transition-delay: 0s;
+}
+
+.toc__list {
+  display: grid;
+  gap: 4px;
+  width: min(300px, calc(100vw - 110px));
+  max-height: min(78vh, 640px);
+  overflow-y: auto;
+  padding: 10px;
+  background: var(--white);
+  border: var(--line) solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.toc__link {
+  display: block;
+  padding: 12px 14px;
+  border-radius: 14px;
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: background-color 0.15s ease;
+}
+.toc__link:hover { background: var(--lilac); }
+.toc__link.is-active { background: var(--butter); box-shadow: inset 0 0 0 3px var(--ink); }
+
+@media (max-width: 1099px) {
+  .toc {
+    right: 14px;
+    top: auto;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    transform: none;
+  }
+  .toc__rail {
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    border-radius: 50%;
+  }
+  .toc__bars { display: none; }
+  .toc__icon { display: grid; justify-items: end; gap: 5px; width: 22px; }   /* uneven lengths, so it reads as an outline, not the header menu */
+  .toc__icon i { display: block; height: 3px; background: var(--ink); border-radius: 2px; }
+  .toc__icon i:nth-child(1) { width: 22px; }
+  .toc__icon i:nth-child(2) { width: 14px; }
+  .toc__icon i:nth-child(3) { width: 18px; }
+
+  .toc__popover {
+    right: 0;
+    top: auto;
+    bottom: calc(100% + 12px);
+    padding: 0;
+    transform: translateY(8px);
+  }
+  .toc.is-open .toc__popover { transform: none; }
+  .toc__list { width: min(320px, calc(100vw - 28px)); max-height: min(60vh, 480px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toc, .toc * { transition: none !important; }
+}
