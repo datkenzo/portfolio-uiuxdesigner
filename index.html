@@ -56,7 +56,17 @@
         <ul class="nav__list">
           <li><a class="nav__link" href="index.html" aria-current="page">Home</a></li>
           <li><a class="nav__link" href="https://drive.google.com/file/d/1IyiNxV_8yLdAtv77d773R05TLhrPXiHI/view?usp=sharing">Resume</a></li>
-          <li><a class="nav__link" href="index.html">Work</a></li>
+          <li class="nav__item nav__item--dropdown" data-dropdown>
+            <button class="nav__link nav__trigger" type="button" aria-expanded="false" aria-controls="work-menu">
+              Work
+              <svg class="nav__caret" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <ul class="nav__dropdown" id="work-menu">
+              <li><a class="nav__dd-link" href="aviron.html"><span class="nav__dd-dot nav__dd-dot--butter" aria-hidden="true"></span>Aviron Interactive</a></li>
+              <li><a class="nav__dd-link" href="tmt.html"><span class="nav__dd-dot nav__dd-dot--mint" aria-hidden="true"></span>TMT Solution</a></li>
+              <li><a class="nav__dd-link" href="yan.html"><span class="nav__dd-dot nav__dd-dot--sky" aria-hidden="true"></span>YAN Digital</a></li>
+            </ul>
+          </li>
         </ul>
         <p class="nav__email">thisisdat098@gmail.com</p>
       </div>

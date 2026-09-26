@@ -200,6 +200,87 @@ h1, h2, h3 {
 .nav__link:hover { background: var(--butter); transform: translateY(-2px); }
 .nav__link[aria-current="page"] { background: var(--lilac); }
 
+/* "Work" dropdown. Opens on hover with a mouse, on tap/click on touch screens,
+   and closes on a tap outside it (js/main.js). */
+.nav__item--dropdown { position: relative; }
+
+.nav__trigger {
+  gap: 8px;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.nav__caret {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+.nav__item--dropdown.is-open .nav__trigger { background: var(--butter); }
+.nav__item--dropdown.is-open .nav__caret { transform: rotate(180deg); }
+
+.nav__dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  z-index: 30;
+  display: grid;
+  gap: 4px;
+  min-width: 250px;
+  padding: 10px;
+  background: var(--white);
+  border: 3px solid var(--ink);
+  border-radius: 22px;
+  box-shadow: var(--shadow-sm);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.16s ease, transform 0.16s ease, visibility 0s linear 0.16s;
+}
+.nav__dropdown::before {            /* invisible bridge so the menu stays open while the pointer crosses the gap */
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -15px;
+  height: 15px;
+}
+.nav__item--dropdown.is-open .nav__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition-delay: 0s;
+}
+
+.nav__dd-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 0 14px;
+  border-radius: 14px;
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+.nav__dd-link:hover { background: var(--lilac); }
+.nav__dd-link[aria-current="page"] { background: var(--lilac); }
+
+.nav__dd-dot {                      /* same colour as the company's panel in "Along My Journey" */
+  flex: none;
+  width: 14px;
+  height: 14px;
+  background: var(--dot);
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+}
+.nav__dd-dot--butter { --dot: var(--butter); }
+.nav__dd-dot--mint   { --dot: var(--mint); }
+.nav__dd-dot--sky    { --dot: var(--sky); }
+
 .nav__email {
   font-weight: 700;
   overflow-wrap: anywhere;
@@ -738,6 +819,21 @@ html:not(.js) .jp__buddy { width: min(72%, 320px); margin-top: 20px; }
 
   .nav__list { flex-direction: column; gap: 10px; }
   .nav__link { width: 100%; min-height: 52px; font-size: 1.125rem; }
+  .nav__trigger { justify-content: space-between; }
+  .nav__dropdown {
+    position: static;
+    display: none;
+    min-width: 0;
+    margin-top: 8px;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: none;
+  }
+  .nav__dropdown::before { display: none; }
+  .nav__item--dropdown.is-open .nav__dropdown { display: grid; }
+  .nav__dd-link { min-height: 52px; font-size: 1.0625rem; }
   .nav__email {
     padding-top: 16px;
     border-top: var(--line) solid var(--ink);
