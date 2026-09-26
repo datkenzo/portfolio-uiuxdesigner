@@ -387,136 +387,233 @@ h1, h2, h3 {
 .deco--statement-left  { --s: clamp(56px, 7vw, 104px); --c: var(--pink); left: 3%; top: 24px; }
 .deco--statement-right { --s: clamp(44px, 6vw, 88px);  --c: var(--sky);  right: 4%; bottom: 24px; }
 
+/* Scribble: one continuous line that draws itself behind the text, holds, then
+   retracts, and repeats. It is sized to the band's height (the loops keep their
+   shape at every width) while the straight runs are cropped at the band's edges.
+   Without JavaScript, or with reduced motion, it simply shows fully drawn. */
+.scribble {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.scribble__path {
+  fill: none;
+  stroke: var(--white);
+  stroke-opacity: 0.75;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.js .scribble__path {
+  stroke-dasharray: 1 1;
+  stroke-dashoffset: 1;
+  animation: scribble-draw 8s ease-in-out infinite paused;
+}
+.js .scribble.is-playing .scribble__path { animation-play-state: running; }
+
+@keyframes scribble-draw {
+  0%   { stroke-dashoffset: 1; }
+  30%  { stroke-dashoffset: 0; }   /* drawn left to right */
+  50%  { stroke-dashoffset: 0; }   /* hold */
+  75%  { stroke-dashoffset: 1; }   /* retracts back to the start */
+  100% { stroke-dashoffset: 1; }   /* short pause, then again */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .scribble__path { animation: none; stroke-dashoffset: 0; }
+}
+
 /* --------------------------------------------------------------------------
-   8. Along my journey
+   8. Along my journey (horizontal accordion; vertical below 900px)
+   Built by js/journey.js. One panel is open at a time; the others shrink to a
+   strip showing their dates. The open panel's content has a fixed width, so it is
+   revealed and hidden by the moving edges instead of reflowing mid-animation.
    -------------------------------------------------------------------------- */
 .journey {
   padding: var(--section-y) var(--pad);
   overflow-x: clip;
 }
 
-.timeline {
-  position: relative;
-  display: grid;
-  gap: clamp(56px, 6vw, 88px);
-  max-width: 1240px;
-  margin: clamp(48px, 6vw, 80px) auto 0;
-}
-.timeline::before {                       /* the rail */
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: var(--line);
-  background: var(--ink);
-  transform: translateX(-50%);
-}
-
-.entry {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 104px;
-  align-items: center;
-}
-.entry::before {                          /* node on the rail */
-  content: "";
-  position: absolute;
-  top: 8px;
-  left: 50%;
-  width: 28px;
-  height: 28px;
-  background: var(--butter);
-  border: var(--line) solid var(--ink);
-  border-radius: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-}
-
-.entry__body  { order: 2; align-self: start; }
-.entry__media { order: 2; }
-.entry--text-first  .entry__body  { order: 1; }
-.entry--text-first  .entry__media { order: 2; }
-.entry--media-first .entry__media { order: 1; }
-.entry--media-first .entry__body  { order: 2; }
-
-.entry__date {
-  display: inline-block;
-  margin-bottom: 20px;
-  padding: 6px 20px;
+.jp {
+  --strip: clamp(68px, 6.2vw, 88px);
+  --jp-dur: 0.6s;
+  --jp-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex;
+  height: clamp(500px, 38vw, 540px);
+  margin-top: clamp(48px, 6vw, 80px);   /* no max-width: spans the same width as the other sections (page padding --pad) */
+  overflow: hidden;
   background: var(--white);
-  border: 3px solid var(--ink);
-  border-radius: 999px;
-  font-weight: 800;
-  font-size: 1.125rem;
-  line-height: 1.4;
-  transform: rotate(-2deg);
+  border: var(--line) solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  container-type: inline-size;              /* lets the open content measure the whole row (100cqw) */
 }
 
-.entry__card {
+.jp__panel {
+  --tab-w: calc(var(--strip) - var(--line));
+  position: relative;
+  display: flex;
+  flex: 0 0 var(--strip);
+  min-width: 0;
+  background: var(--bg-panel);
+  border-left: var(--line) solid var(--ink);
+  transition: flex-grow var(--jp-dur) var(--jp-ease);
+}
+.jp__panel:first-child { --tab-w: var(--strip); border-left: 0; }
+.jp__panel.is-open { flex-grow: 1; }
+
+.jp__panel--sky    { --bg-panel: var(--sky); }
+.jp__panel--mint   { --bg-panel: var(--mint); }
+.jp__panel--butter { --bg-panel: var(--butter); }
+.jp__panel--pink   { --bg-panel: var(--pink); }
+
+.jp__heading {
+  display: flex;
+  flex: 0 0 var(--tab-w);
+  margin: 0;
+  font: inherit;
+}
+
+.jp__tab {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  padding: 30px 0;
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  font: inherit;
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+.jp__panel:not(.is-open) .jp__tab:hover { background: rgba(255, 255, 255, 0.35); }
+.jp__panel.is-open .jp__tab { cursor: default; }
+.jp__tab:focus-visible { outline-offset: -8px; }
+
+.jp__date { writing-mode: vertical-rl; white-space: nowrap; }
+
+.jp__body {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.jp__inner {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-  padding: clamp(24px, 2.6vw, 36px);
-  background: var(--bg-card);
-  border: var(--line) solid var(--ink);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-.entry__card--pink { --bg-card: var(--pink); }
-.entry__card--sky  { --bg-card: var(--sky); }
-.entry__card--mint { --bg-card: var(--mint); }
-.entry__card .btn  { margin-top: 8px; }
-
-.entry__title {
-  font-size: clamp(1.625rem, 1.2rem + 1.2vw, 2.25rem);
-  text-wrap: balance;
-}
-
-.entry__media {
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  background: var(--bg-media);
-  border: var(--line) solid var(--ink);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-.entry__media img {
-  width: 100%;
+  gap: 12px;
+  width: calc(100cqw - 4 * var(--strip));   /* the width it has when fully open */
   height: 100%;
-  padding: clamp(10px, 1.5vw, 20px);
-  object-fit: contain;
-}
-.entry__media--lilac { --bg-media: var(--lilac); }
-.entry__media--mint  { --bg-media: var(--mint); }
-.entry__media--peach { --bg-media: var(--peach); }
-
-.entry--end { display: flex; justify-content: center; }
-.entry--end::before { display: none; }
-
-.entry__future {
-  position: relative;
-  z-index: 1;
-  padding: 10px 36px;
-  background: var(--lilac);
-  border: var(--line) solid var(--ink);
-  border-radius: 999px;
-  font-size: clamp(1.5rem, 1.1rem + 1.2vw, 2rem);
-  box-shadow: var(--shadow-sm);
+  padding: clamp(28px, 3vw, 44px) clamp(28px, 3vw, 44px) clamp(28px, 3vw, 40px) 8px;
 }
 
-.journey__closing {
-  max-width: 20ch;
-  margin: clamp(56px, 7vw, 96px) auto 0;
-  font-size: clamp(1.875rem, 1rem + 3.2vw, 3.75rem);
+.jp__title {
+  margin-bottom: 6px;
+  font-size: clamp(1.5rem, 1.1rem + 1.1vw, 2.25rem);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  text-align: center;
   text-wrap: balance;
 }
+.jp__inner > p:not(.jp__title):not(.jp__future-text) {
+  max-width: 62ch;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.jp__foot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.jp__logo {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: clamp(112px, 11vw, 156px);
+  aspect-ratio: 1;
+}
+.jp__logo img { width: 100%; height: 100%; object-fit: contain; }
+.jp__logo--padded img { transform: scale(1.41); }  /* this logo file has a wide transparent margin */
+
+.btn--white { --bg-btn: var(--white); }
+.btn__arrow { flex: none; width: 20px; height: 20px; margin-left: 10px; }
+
+/* Future panel */
+.jp__panel--future .jp__inner {
+  align-items: center;
+  padding-bottom: 0;
+  text-align: center;
+}
+.jp__future-text {
+  margin-top: clamp(12px, 2.5vw, 32px);
+  font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+.jp__buddy {
+  display: block;
+  width: min(56%, 340px);
+  height: auto;
+  margin-top: auto;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Vertical version: phones, tablets, and pages without JavaScript */
+@media (max-width: 899px) {
+  .jp { flex-direction: column; height: auto; }
+  .jp__panel {
+    display: grid;
+    grid-template-rows: auto 0fr;
+    flex: none;
+    border-left: 0;
+    border-top: var(--line) solid var(--ink);
+    transition: grid-template-rows var(--jp-dur) var(--jp-ease);
+  }
+  .jp__panel:first-child { border-top: 0; }
+  .jp__panel.is-open { grid-template-rows: auto 1fr; }
+  .jp__tab {
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 64px;
+    padding: 0 24px;
+    text-align: left;
+  }
+  .jp__date { writing-mode: horizontal-tb; white-space: normal; }
+  .jp__body { min-height: 0; }
+  .jp__inner { width: auto; height: auto; padding: 0 24px 28px; }
+  .jp__buddy { width: min(72%, 320px); margin-top: 20px; }
+}
+html:not(.js) .jp { flex-direction: column; height: auto; }
+html:not(.js) .jp__panel { display: block; flex: none; border-left: 0; border-top: var(--line) solid var(--ink); }
+html:not(.js) .jp__panel:first-child { border-top: 0; }
+html:not(.js) .jp__tab { justify-content: flex-start; padding: 20px 24px 8px; cursor: default; }
+html:not(.js) .jp__date { writing-mode: horizontal-tb; }
+html:not(.js) .jp__inner { width: auto; height: auto; padding: 0 24px 28px; }
+html:not(.js) .jp__buddy { width: min(72%, 320px); margin-top: 20px; }
 
 /* --------------------------------------------------------------------------
    9. Connect
@@ -563,7 +660,7 @@ h1, h2, h3 {
   .hero__role { font-size: clamp(3.5rem, 8vw, 7rem); }
 }
 
-/* Below 900px: single-column hero, 2-up skills, left-rail timeline */
+/* Below 900px: single-column hero, 2-up skills (the journey accordion turns vertical in section 8) */
 @media (max-width: 899px) {
   :root { --shadow: 5px 5px 0 var(--ink); }
 
@@ -584,25 +681,6 @@ h1, h2, h3 {
 
   .skills__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .skill:last-child { grid-column: 1 / -1; }
-
-  /* timeline: rail moves to the left edge, everything stacks */
-  .timeline::before { left: 15px; transform: none; bottom: 30px; }
-  .entry {
-    grid-template-columns: minmax(0, 1fr);
-    row-gap: 28px;
-    padding-left: 52px;
-    align-items: start;
-  }
-  .entry::before { left: 2px; transform: none; top: 6px; }
-  .entry--text-first .entry__body,
-  .entry--media-first .entry__body  { order: 1; }
-  .entry--text-first .entry__media,
-  .entry--media-first .entry__media { order: 2; }
-
-  .entry--end { justify-content: flex-start; align-items: center; }
-  .entry--end::before { display: block; top: 50%; transform: translateY(-50%); }
-
-  .journey__closing { margin-top: 56px; }
 }
 
 /* Below 720px: compact navigation menu, stacked skills */
@@ -670,12 +748,11 @@ h1, h2, h3 {
   .skill:last-child { grid-column: auto; }
   .skill { gap: 20px; }
 
-  .entry { padding-left: 40px; }
-  .timeline::before { left: 11px; }
-  .entry::before { width: 24px; height: 24px; }
-  .entry__date { font-size: 1rem; }
-  .entry__card .btn { width: 100%; }
-  .entry__future { padding: 8px 28px; }
+  .jp__tab { min-height: 60px; padding: 0 20px; font-size: 1.0625rem; }
+  .jp__inner { padding: 0 20px 24px; }
+  .jp__foot { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .jp__logo { width: 104px; }
+  .jp__cta { width: 100%; }
 
   .connect .btn { width: 100%; max-width: 360px; }
 }
