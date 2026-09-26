@@ -67,5 +67,36 @@
     });
   });
 
+  /* Horizontal layout: make the row tall enough for the panel with the most text.
+     Each panel's content is laid out at its open width, so measuring it works even
+     while the panel is collapsed. The CSS keeps a minimum height of its own. */
+  var inners = panels.map(function (panel) { return panel.querySelector(".jp__inner"); });
+  var lastWidth = -1;
+
+  function fitHeight() {
+    if (vertical.matches) { root.style.removeProperty("--jp-fit"); return; }
+    var tallest = 0;
+    inners.forEach(function (inner) {
+      inner.style.height = "auto";
+      tallest = Math.max(tallest, inner.offsetHeight);
+      inner.style.height = "";
+    });
+    var edges = root.offsetHeight - root.clientHeight;   // top + bottom border
+    root.style.setProperty("--jp-fit", Math.ceil(tallest + edges) + "px");
+  }
+
+  if ("ResizeObserver" in window) {
+    new ResizeObserver(function (entries) {
+      var width = entries[0].contentRect.width;
+      if (width === lastWidth) return;                  // our own height change, ignore
+      lastWidth = width;
+      fitHeight();
+    }).observe(root);
+  } else {
+    window.addEventListener("resize", fitHeight);
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitHeight);
+  fitHeight();
+
   setOpen(root.querySelector("[data-panel].is-open") || panels[0]);
 })();

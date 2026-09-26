@@ -442,7 +442,8 @@ h1, h2, h3 {
   --jp-dur: 0.6s;
   --jp-ease: cubic-bezier(0.22, 1, 0.36, 1);
   display: flex;
-  height: clamp(500px, 38vw, 540px);
+  /* at least this tall; js/journey.js raises it (--jp-fit) to the tallest panel's content */
+  height: max(clamp(500px, 38vw, 540px), var(--jp-fit, 0px));
   margin-top: clamp(48px, 6vw, 80px);   /* no max-width: spans the same width as the other sections (page padding --pad) */
   overflow: hidden;
   background: var(--white);
@@ -516,15 +517,19 @@ h1, h2, h3 {
 
 .jp__title {
   margin-bottom: 6px;
-  font-size: clamp(1.5rem, 1.1rem + 1.1vw, 2.25rem);
+  font-size: clamp(1.625rem, 1rem + 1.5cqw, 2.75rem);    /* grows with the timeline's width */
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.02em;
   text-wrap: balance;
 }
+/* Body text inside the panels: never smaller than the page's body text (17px),
+   growing with the timeline's width (cqw = 1% of the timeline) up to 21px.
+   The text box is 55% of the timeline's width, kept between 28em and 40em so
+   lines stay comfortable to read (about 60-75 characters). */
 .jp__inner > p:not(.jp__title):not(.jp__future-text) {
-  max-width: 62ch;
-  font-size: 1rem;
+  max-width: clamp(28em, 55cqw, 40em);
+  font-size: clamp(1.0625rem, 0.8rem + 0.55cqw, 1.3125rem);
   line-height: 1.6;
 }
 
@@ -605,6 +610,7 @@ h1, h2, h3 {
   .jp__date { writing-mode: horizontal-tb; white-space: normal; }
   .jp__body { min-height: 0; }
   .jp__inner { width: auto; height: auto; padding: 0 24px 28px; }
+  .jp__inner > p:not(.jp__title):not(.jp__future-text) { max-width: 40em; }
   .jp__buddy { width: min(72%, 320px); margin-top: 20px; }
 }
 html:not(.js) .jp { flex-direction: column; height: auto; }
